@@ -171,17 +171,16 @@ Rails.application.routes.draw do
             end
           end
           resources :working_hours, only: [:update]
-
+          resources :attach_files, only: [:create] do
+            post :upload, on: :collection
+          end
           resources :portals do
             member do
               patch :archive
               put :add_members
             end
-            post :attach_file, on: :collection
             resources :categories
-            resources :articles do
-              post :attach_file, on: :collection
-            end
+            resources :articles
           end
         end
       end

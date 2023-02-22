@@ -22,10 +22,13 @@
 #  uniq_identifier_per_account_contact            (identifier,account_id) UNIQUE
 #
 
+require 'elasticsearch/model'
+
 class Contact < ApplicationRecord
   include Avatarable
   include AvailabilityStatusable
   include Labelable
+  include Elasticsearch::Model
 
   validates :account_id, presence: true
   validates :email, allow_blank: true, uniqueness: { scope: [:account_id], case_sensitive: false },
@@ -101,6 +104,13 @@ class Contact < ApplicationRecord
     )
   }
 
+  mapping do
+    indexes :name, type: 'text'
+    indexes :phone_number, type: 'text'
+    indexes :email, type: 'text'
+    indexes :account_id, type: 'integer'
+  end
+
   def get_source_id(inbox_id)
     contact_inboxes.find_by!(inbox_id: inbox_id).source_id
   end
@@ -144,6 +154,8 @@ class Contact < ApplicationRecord
     phone_number_format
     email_format
   end
+
+  def self.search(query); end
 
   private
 

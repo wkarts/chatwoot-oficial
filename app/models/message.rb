@@ -30,9 +30,13 @@
 #  index_messages_on_source_id                          (source_id)
 #
 
+require 'elasticsearch/model'
+
 class Message < ApplicationRecord
   include MessageFilterHelpers
   include Liquidable
+  include Elasticsearch::Model
+
   NUMBER_OF_PERMITTED_ATTACHMENTS = 15
 
   before_validation :ensure_content_type
@@ -97,6 +101,11 @@ class Message < ApplicationRecord
   after_create_commit :execute_after_create_commit_callbacks
 
   after_update_commit :dispatch_update_event
+
+  mapping do
+    indexes :content, type: 'text'
+    indexes :account_id, type: 'integer'
+  end
 
   def channel_token
     @token ||= inbox.channel.try(:page_access_token)

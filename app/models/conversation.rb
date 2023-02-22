@@ -41,6 +41,8 @@
 #  index_conversations_on_uuid                        (uuid) UNIQUE
 #
 
+require 'elasticsearch/model'
+
 class Conversation < ApplicationRecord
   include Labelable
   include AssignmentHandler
@@ -48,6 +50,8 @@ class Conversation < ApplicationRecord
   include ActivityMessageHandler
   include UrlHelper
   include SortHandler
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   validates :account_id, presence: true
   validates :inbox_id, presence: true
@@ -97,6 +101,21 @@ class Conversation < ApplicationRecord
   after_commit :set_display_id, unless: :display_id?
 
   delegate :auto_resolve_duration, to: :account
+  delegate :name, :email, :phone_number, to: :contact, allow_nil: true
+
+  mapping do
+    indexes :display_id, type: 'integer'
+    indexes :contact, type: 'text' do
+      indexes :name, type: 'text'
+      indexes :phone_number, type: 'text'
+      indexes :email, type: 'text'
+    end
+    indexes :account_id, type: 'integer'
+  end
+
+  def self.search(query)
+    __elasticsearch__.search query
+  end
 
   def can_reply?
     channel = inbox&.channel

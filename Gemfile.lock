@@ -1,10 +1,29 @@
 GIT
+  remote: https://github.com/basecamp/rbtrace.git
+  revision: 73f8bb563f2926c02aabd3b630bee0c4d9060421
+  specs:
+    rbtrace (0.4.14)
+      ffi (>= 1.0.6)
+      msgpack (>= 0.4.3)
+      optimist (>= 3.0.0)
+
+GIT
   remote: https://github.com/chatwoot/devise-secure_password
   revision: d777b04f12652d576b1272b8f39857e3e0b3fc26
   specs:
     devise-secure_password (2.0.1)
       devise (>= 4.0.0, < 5.0.0)
       railties (>= 5.0.0, < 7.0.0)
+
+GIT
+  remote: https://github.com/elastic/elasticsearch-rails.git
+  revision: 5605d1fe69d3727bf1d0c703d5510583e8acc96b
+  specs:
+    elasticsearch-model (7.2.1)
+      activesupport (> 3)
+      elasticsearch (~> 7)
+      hashie
+    elasticsearch-rails (7.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -56,8 +75,6 @@ GEM
     activerecord (6.1.7.1)
       activemodel (= 6.1.7.1)
       activesupport (= 6.1.7.1)
-    activerecord-import (1.4.0)
-      activerecord (>= 4.2)
     activestorage (6.1.7.1)
       actionpack (= 6.1.7.1)
       activejob (= 6.1.7.1)
@@ -186,6 +203,14 @@ GEM
     elastic-apm (4.5.1)
       concurrent-ruby (~> 1.0)
       http (>= 3.0)
+    elasticsearch (7.17.7)
+      elasticsearch-api (= 7.17.7)
+      elasticsearch-transport (= 7.17.7)
+    elasticsearch-api (7.17.7)
+      multi_json
+    elasticsearch-transport (7.17.7)
+      faraday (~> 1)
+      multi_json
     email_reply_trimmer (0.1.13)
     erubi (1.10.0)
     et-orbi (1.2.7)
@@ -484,6 +509,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     openssl (3.1.0)
+    optimist (3.0.1)
     orm_adapter (0.5.0)
     os (1.1.4)
     parallel (1.22.1)
@@ -758,7 +784,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_query_trace
-  activerecord-import
   acts-as-taggable-on
   administrate
   annotate
@@ -784,6 +809,8 @@ DEPENDENCIES
   dotenv-rails
   down (~> 5.0)
   elastic-apm
+  elasticsearch-model!
+  elasticsearch-rails!
   email_reply_trimmer
   facebook-messenger
   factory_bot_rails
@@ -832,6 +859,7 @@ DEPENDENCIES
   rack-cors
   rack-timeout
   rails (~> 6.1, >= 6.1.7.1)
+  rbtrace!
   redis
   redis-namespace
   responders

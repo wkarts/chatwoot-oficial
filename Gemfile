@@ -56,7 +56,7 @@ gem 'pg'
 gem 'redis'
 gem 'redis-namespace'
 # super fast record imports in bulk
-gem 'activerecord-import'
+# gem 'activerecord-import'
 
 ##--- gems for server & infra configuration ---##
 gem 'dotenv-rails'
@@ -162,6 +162,7 @@ group :development do
 
   # When we want to squash migrations
   gem 'squasher'
+  gem 'rbtrace', require: true, git: 'https://github.com/basecamp/rbtrace.git'
 end
 
 group :test do
@@ -207,3 +208,6 @@ gem 'omniauth-oauth2'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails'

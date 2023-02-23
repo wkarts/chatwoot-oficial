@@ -36,6 +36,7 @@ class Message < ApplicationRecord
   include MessageFilterHelpers
   include Liquidable
   include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   NUMBER_OF_PERMITTED_ATTACHMENTS = 15
 

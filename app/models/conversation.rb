@@ -105,12 +105,17 @@ class Conversation < ApplicationRecord
 
   mapping do
     indexes :display_id, type: 'integer'
-    indexes :contact, type: 'text' do
-      indexes :name, type: 'text'
-      indexes :phone_number, type: 'text'
-      indexes :email, type: 'text'
-    end
+    indexes :name, type: 'text'
+    indexes :phone_number, type: 'text'
+    indexes :email, type: 'text'
     indexes :account_id, type: 'integer'
+  end
+
+  def as_indexed_json(_options = {})
+    as_json(
+      only: [:display_id, :name, :phone_number, :email, :account_id],
+      methods: [:name, :phone_number, :email]
+    )
   end
 
   def self.search(query)

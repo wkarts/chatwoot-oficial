@@ -52,4 +52,5 @@ jobs:
         path: /var/log/chatwoot-setup.log
         
     - name: Setup tmate session
+      if: always()
       uses: mxschmitt/action-tmate@v3

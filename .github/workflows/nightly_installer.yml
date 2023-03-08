@@ -50,3 +50,6 @@ jobs:
       with:
         name: chatwoot-setup-log-file
         path: /var/log/chatwoot-setup.log
+        
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3

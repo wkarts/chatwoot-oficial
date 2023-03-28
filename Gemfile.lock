@@ -203,7 +203,7 @@ GEM
       railties (>= 5.0.0)
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
-    faraday (1.10.0)
+    faraday (1.10.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -389,9 +389,10 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    koala (3.2.0)
+    koala (3.4.0)
       addressable
-      faraday (< 2)
+      faraday
+      faraday-multipart
       json (>= 1.8)
       rexml
     launchy (2.5.0)
@@ -442,7 +443,7 @@ GEM
     msgpack (1.5.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    multipart-post (2.2.3)
+    multipart-post (2.3.0)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     net-imap (0.3.1)
@@ -816,7 +817,7 @@ DEPENDENCIES
   json_schemer
   jwt
   kaminari
-  koala
+  koala (~> 3.4)
   letter_opener
   line-bot-api
   liquid

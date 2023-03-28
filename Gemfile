@@ -89,7 +89,7 @@ gem 'twilio-ruby', '~> 5.66'
 # gem 'twitty', git: 'https://github.com/chatwoot/twitty'
 gem 'twitty'
 # facebook client
-gem 'koala'
+gem 'koala', '~> 3.4'
 # slack client
 gem 'slack-ruby-client'
 # for dialogflow integrations

@@ -2,19 +2,19 @@
   "REPORT": {
     "HEADER": "Conversations",
     "LOADING_CHART": "Loading chart data...",
-    "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
-    "DOWNLOAD_AGENT_REPORTS": "Download agent reports",
+    "NO_ENOUGH_DATA": "We've not received enough data points to generate a report. Please try again.",
+    "DOWNLOAD_AGENT_REPORTS": "Download conversation reports",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversations",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
-        "NAME": "Incoming Messages",
+        "NAME": "Incoming messages",
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Outgoing Messages",
+        "NAME": "Outgoing messages",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
@@ -24,13 +24,13 @@
         "TOOLTIP_TEXT": "First Response Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Resolution Time",
+        "NAME": "Resolution time",
         "DESC": "( Avg )",
         "INFO_TEXT": "Total number of conversations used for computation:",
         "TOOLTIP_TEXT": "Resolution Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Resolution Count",
+        "NAME": "Resolution count",
         "DESC": "( Total )"
       }
     },
@@ -82,25 +82,25 @@
       { "id": 3, "groupBy": "Month" },
       { "id": 4, "groupBy": "Year" }
     ],
-    "BUSINESS_HOURS": "Business Hours"
+    "BUSINESS_HOURS": "Business hours"
   },
   "AGENT_REPORTS": {
     "HEADER": "Agents Overview",
     "LOADING_CHART": "Loading chart data...",
-    "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
+    "NO_ENOUGH_DATA": "We've not received enough data points to generate a report. Please try again.",
     "DOWNLOAD_AGENT_REPORTS": "Download agent reports",
-    "FILTER_DROPDOWN_LABEL": "Select Agent",
+    "FILTER_DROPDOWN_LABEL": "Select agent",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversations",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
-        "NAME": "Incoming Messages",
+        "NAME": "Incoming messages",
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Outgoing Messages",
+        "NAME": "Outgoing messages",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
@@ -110,13 +110,13 @@
         "TOOLTIP_TEXT": "First Response Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Resolution Time",
+        "NAME": "Resolution time",
         "DESC": "( Avg )",
         "INFO_TEXT": "Total number of conversations used for computation:",
         "TOOLTIP_TEXT": "Resolution Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Resolution Count",
+        "NAME": "Resolution count",
         "DESC": "( Total )"
       }
     },
@@ -154,20 +154,20 @@
   "LABEL_REPORTS": {
     "HEADER": "Labels Overview",
     "LOADING_CHART": "Loading chart data...",
-    "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
+    "NO_ENOUGH_DATA": "We've not received enough data points to generate a report. Please try again.",
     "DOWNLOAD_LABEL_REPORTS": "Download label reports",
-    "FILTER_DROPDOWN_LABEL": "Select Label",
+    "FILTER_DROPDOWN_LABEL": "Select label",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversations",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
-        "NAME": "Incoming Messages",
+        "NAME": "Incoming messages",
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Outgoing Messages",
+        "NAME": "Outgoing messages",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
@@ -177,13 +177,13 @@
         "TOOLTIP_TEXT": "First Response Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Resolution Time",
+        "NAME": "Resolution time",
         "DESC": "( Avg )",
         "INFO_TEXT": "Total number of conversations used for computation:",
         "TOOLTIP_TEXT": "Resolution Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Resolution Count",
+        "NAME": "Resolution count",
         "DESC": "( Total )"
       }
     },
@@ -221,20 +221,20 @@
   "INBOX_REPORTS": {
     "HEADER": "Inbox Overview",
     "LOADING_CHART": "Loading chart data...",
-    "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
+    "NO_ENOUGH_DATA": "We've not received enough data points to generate a report. Please try again.",
     "DOWNLOAD_INBOX_REPORTS": "Download inbox reports",
-    "FILTER_DROPDOWN_LABEL": "Select Inbox",
+    "FILTER_DROPDOWN_LABEL": "Select inbox",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversations",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
-        "NAME": "Incoming Messages",
+        "NAME": "Incoming messages",
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Outgoing Messages",
+        "NAME": "Outgoing messages",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
@@ -244,13 +244,13 @@
         "TOOLTIP_TEXT": "First Response Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Resolution Time",
+        "NAME": "Resolution time",
         "DESC": "( Avg )",
         "INFO_TEXT": "Total number of conversations used for computation:",
         "TOOLTIP_TEXT": "Resolution Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Resolution Count",
+        "NAME": "Resolution count",
         "DESC": "( Total )"
       }
     },
@@ -288,20 +288,20 @@
   "TEAM_REPORTS": {
     "HEADER": "Team Overview",
     "LOADING_CHART": "Loading chart data...",
-    "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
+    "NO_ENOUGH_DATA": "We've not received enough data points to generate a report. Please try again.",
     "DOWNLOAD_TEAM_REPORTS": "Download team reports",
-    "FILTER_DROPDOWN_LABEL": "Select Team",
+    "FILTER_DROPDOWN_LABEL": "Select team",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversations",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
-        "NAME": "Incoming Messages",
+        "NAME": "Incoming messages",
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Outgoing Messages",
+        "NAME": "Outgoing messages",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
@@ -311,13 +311,13 @@
         "TOOLTIP_TEXT": "First Response Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Resolution Time",
+        "NAME": "Resolution time",
         "DESC": "( Avg )",
         "INFO_TEXT": "Total number of conversations used for computation:",
         "TOOLTIP_TEXT": "Resolution Time is %{metricValue} (based on %{conversationCount} conversations)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Resolution Count",
+        "NAME": "Resolution count",
         "DESC": "( Total )"
       }
     },
@@ -354,11 +354,11 @@
   },
   "CSAT_REPORTS": {
     "HEADER": "CSAT Reports",
-    "NO_RECORDS": "There are no CSAT survey responses available.",
+    "NO_RECORDS": "There are no CSAT survey responses available. We've got no juicy gossip from your customers this time!",
     "DOWNLOAD": "Download CSAT Reports",
     "FILTERS": {
       "AGENTS": {
-        "PLACEHOLDER": "Choose Agents"
+        "PLACEHOLDER": "Choose agents"
       }
     },
     "TABLE": {
@@ -376,11 +376,11 @@
       },
       "SATISFACTION_SCORE": {
         "LABEL": "Satisfaction score",
-        "TOOLTIP": "Total number of positive responses / Total number of responses * 100"
+        "TOOLTIP": "(Total number of positive responses / Total number of responses) * 100"
       },
       "RESPONSE_RATE": {
         "LABEL": "Response rate",
-        "TOOLTIP": "Total number of responses / Total number of CSAT survey messages sent * 100"
+        "TOOLTIP": "(Total number of responses / Total number of CSAT survey messages sent) * 100"
       }
     }
   },
@@ -403,7 +403,7 @@
     "AGENT_CONVERSATIONS": {
       "HEADER": "Conversations by agents",
       "LOADING_MESSAGE": "Loading agent metrics...",
-      "NO_AGENTS": "There are no conversations by agents",
+      "NO_AGENTS": "There are no conversations by agents.",
       "TABLE_HEADER": {
         "AGENT": "Agent",
         "OPEN": "OPEN",

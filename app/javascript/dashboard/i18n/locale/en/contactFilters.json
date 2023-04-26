@@ -1,15 +1,15 @@
 {
     "CONTACTS_FILTER": {
-        "TITLE": "Filter Contacts",
-        "SUBTITLE": "Add filters below and hit 'Submit' to filter contacts.",
-        "ADD_NEW_FILTER": "Add Filter",
-        "CLEAR_ALL_FILTERS": "Clear All Filters",
-        "FILTER_DELETE_ERROR": "You should have atleast one filter to save",
+        "TITLE": "Filter contacts",
+        "SUBTITLE": "Let's cut the noise! Add your filters below and hit 'Submit' to see only what you need.",
+        "ADD_NEW_FILTER": "Add filter",
+        "CLEAR_ALL_FILTERS": "Clear all filters",
+        "FILTER_DELETE_ERROR": "Oops, looks like we can't save nothing! Please add at least one filter to save it.",
         "SUBMIT_BUTTON_LABEL": "Submit",
         "CANCEL_BUTTON_LABEL": "Cancel",
-        "CLEAR_BUTTON_LABEL": "Clear Filters",
-        "EMPTY_VALUE_ERROR": "Value is required",
-        "TOOLTIP_LABEL": "Filter contacts",
+        "CLEAR_BUTTON_LABEL": "Clear filters",
+        "EMPTY_VALUE_ERROR": "Value is required.",
+        "TOOLTIP_LABEL": "Filter contacts.",
         "QUERY_DROPDOWN_LABELS": {
             "AND": "AND",
             "OR": "OR"
@@ -37,14 +37,14 @@
             "CUSTOM_ATTRIBUTE_NUMBER": "Number",
             "CUSTOM_ATTRIBUTE_LINK": "Link",
             "CUSTOM_ATTRIBUTE_CHECKBOX": "Checkbox",
-            "CREATED_AT": "Created At",
-            "LAST_ACTIVITY": "Last Activity",
+            "CREATED_AT": "Created at",
+            "LAST_ACTIVITY": "Last activity",
             "REFERER_LINK": "Referrer link"
         },
         "GROUPS": {
-            "STANDARD_FILTERS": "Standard Filters",
-            "ADDITIONAL_FILTERS": "Additional Filters",
-            "CUSTOM_ATTRIBUTES": "Custom Attributes"
+            "STANDARD_FILTERS": "Standard filters",
+            "ADDITIONAL_FILTERS": "Additional filters",
+            "CUSTOM_ATTRIBUTES": "Custom attributes"
         }
     }
 }

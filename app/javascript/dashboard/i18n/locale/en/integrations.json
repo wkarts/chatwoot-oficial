@@ -2,16 +2,16 @@
   "INTEGRATION_SETTINGS": {
     "HEADER": "Integrations",
     "WEBHOOK": {
-      "SUBSCRIBED_EVENTS": "Subscribed Events",
+      "SUBSCRIBED_EVENTS": "Subscribed events",
       "FORM": {
         "CANCEL": "Cancel",
-        "DESC": "Webhook events provide you the realtime information about what's happening in your Chatwoot account. Please enter a valid URL to configure a callback.",
+        "DESC": "To configure webhook events, enter the URL where you want to receive the event notifications. You can choose which events you want to receive notifications for.",
         "SUBSCRIPTIONS": {
           "LABEL": "Events",
           "EVENTS": {
-            "CONVERSATION_CREATED": "Conversation Created",
-            "CONVERSATION_STATUS_CHANGED": "Conversation Status Changed",
-            "CONVERSATION_UPDATED": "Conversation Updated",
+            "CONVERSATION_CREATED": "Conversation created",
+            "CONVERSATION_STATUS_CHANGED": "Conversation status changed",
+            "CONVERSATION_UPDATED": "Conversation updated",
             "MESSAGE_CREATED": "Message created",
             "MESSAGE_UPDATED": "Message updated",
             "WEBWIDGET_TRIGGERED": "Live chat widget opened by the user",
@@ -21,8 +21,8 @@
         },
         "END_POINT": {
           "LABEL": "Webhook URL",
-          "PLACEHOLDER": "Example: https://example/api/webhook",
-          "ERROR": "Please enter a valid URL"
+          "PLACEHOLDER": "E.g., https://example/api/webhook",
+          "ERROR": "Please enter a valid URL."
         },
         "EDIT_SUBMIT": "Update webhook",
         "ADD_SUBMIT": "Create webhook"
@@ -31,9 +31,9 @@
       "CONFIGURE": "Configure",
       "HEADER": "Webhook settings",
       "HEADER_BTN_TXT": "Add new webhook",
-      "LOADING": "Fetching attached webhooks",
-      "SEARCH_404": "There are no items matching this query",
-      "SIDEBAR_TXT": "<p><b>Webhooks</b> </p> <p>Webhooks are HTTP callbacks which can be defined for every account. They are triggered by events like message creation in Chatwoot. You can create more than one webhook for this account. <br /><br /> For creating a <b>webhook</b>, click on the <b>Add new webhook</b> button. You can also remove any existing webhook by clicking on the Delete button.</p>",
+      "LOADING": "Fetching attached webhooks...",
+      "SEARCH_404": "There are no items matching this query.",
+      "SIDEBAR_TXT": "<p><b>Webhooks</b> </p> <p>Webhooks help you keep an eye on essential activities in your Chatwoot account, like a new message or conversation being created. You can create multiple webhooks for your account, each with its unique URL.</p><p>You can manage your webhooks from this page or create new ones using the "Add webhook" button.</p><p>Open the Webhooks handbook in another tab for a helping hand.</p>",
       "LIST": {
         "404": "There are no webhooks configured for this account.",
         "TITLE": "Manage webhooks",
@@ -43,49 +43,49 @@
         "BUTTON_TEXT": "Edit",
         "TITLE": "Edit webhook",
         "API": {
-          "SUCCESS_MESSAGE": "Webhook configuration updated successfully",
-          "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+          "SUCCESS_MESSAGE": "Webhook configuration updated successfully.",
+          "ERROR_MESSAGE": "Could not connect to Woot server. Please try again."
         }
       },
       "ADD": {
         "CANCEL": "Cancel",
         "TITLE": "Add new webhook",
         "API": {
-          "SUCCESS_MESSAGE": "Webhook configuration added successfully",
-          "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+          "SUCCESS_MESSAGE": "Webhook configuration added successfully.",
+          "ERROR_MESSAGE": "Could not connect to Woot server. Please try again."
         }
       },
       "DELETE": {
         "BUTTON_TEXT": "Delete",
         "API": {
-          "SUCCESS_MESSAGE": "Webhook deleted successfully",
-          "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+          "SUCCESS_MESSAGE": "Webhook deleted successfully.",
+          "ERROR_MESSAGE": "Could not connect to Woot server. Please try again."
         },
         "CONFIRM": {
-          "TITLE": "Confirm Deletion",
+          "TITLE": "Confirm deletion",
           "MESSAGE": "Are you sure to delete the webhook? (%{webhookURL})",
-          "YES": "Yes, Delete ",
-          "NO": "No, Keep it"
+          "YES": "Yes, delete ",
+          "NO": "No, keep it"
         }
       }
     },
     "SLACK": {
       "HELP_TEXT": {
-        "TITLE": "Using Slack Integration",
-        "BODY": "<br/><p>Chatwoot will now sync all the incoming conversations into the <b><i>customer-conversations</i></b> channel inside your slack workplace.</p><p>Replying to a conversation thread in <b><i>customer-conversations</i></b> slack channel will create a response back to the customer through chatwoot.</p><p>Start the replies with <b><i>note:</i></b> to create private notes instead of replies.</p><p>If the replier on slack has an agent profile in chatwoot under the same email, the replies will be associated accordingly.</p><p>When the replier doesn't have an associated agent profile, the replies will be made from the bot profile.</p>"
+        "TITLE": "Using Slack integration",
+        "BODY": "<br/><p>Chatwoot will sync your incoming conversations to your Slack workplace's 'customer-conversations' channel.</p><p>When you reply to a conversation thread in this channel, Chatwoot will create a response back to the customer. To create private notes instead of replies, start your message with 'note:'.</p><p>If the replier on Slack has an agent profile in Chatwoot under the same email, the replies will be associated accordingly. However, if the replier doesn't have an associated agent profile, the replies will be made from the bot profile.</p>"
       }
     },
     "DYTE": {
       "CLICK_HERE_TO_JOIN": "Click here to join",
       "LEAVE_THE_ROOM": "Leave the room",
-      "START_VIDEO_CALL_HELP_TEXT": "Start a new video call with the customer",
-      "JOIN_ERROR": "There was an error joining the call, please try again",
-      "CREATE_ERROR": "There was an error creating a meeting link, please try again"
+      "START_VIDEO_CALL_HELP_TEXT": "Start a video call with the customer",
+      "JOIN_ERROR": "There was an error joining the call. Please try again.",
+      "CREATE_ERROR": "There was an error creating a meeting link. Please try again."
     },
     "DELETE": {
       "BUTTON_TEXT": "Delete",
       "API": {
-        "SUCCESS_MESSAGE": "Integration deleted successfully"
+        "SUCCESS_MESSAGE": "Integration deleted successfully."
       }
     },
     "CONNECT": {
@@ -93,11 +93,11 @@
     },
     "DASHBOARD_APPS": {
       "TITLE": "Dashboard Apps",
-      "HEADER_BTN_TXT": "Add a new dashboard app",
-      "SIDEBAR_TXT": "<p><b>Dashboard Apps</b></p><p>Dashboard Apps allow organizations to embed an application inside the Chatwoot dashboard to provide the context for customer support agents. This feature allows you to create an application independently and embed that inside the dashboard to provide user information, their orders, or their previous payment history.</p><p>When you embed your application using the dashboard in Chatwoot, your application will get the context of the conversation and contact as a window event. Implement a listener for the message event on your page to receive the context.</p><p>To add a new dashboard app, click on the button 'Add a new dashboard app'.</p>",
-      "DESCRIPTION": "Dashboard Apps allow organizations to embed an application inside the dashboard to provide the context for customer support agents. This feature allows you to create an application independently and embed that to provide user information, their orders, or their previous payment history.",
+      "HEADER_BTN_TXT": "Add a dashboard app",
+      "SIDEBAR_TXT": "<p><b>Dashboard Apps</b></p><p>With Dashboard Apps, you can integrate third-party applications directly into your dashboard, providing agents with valuable context. This way, you have ready access to information such as user details, order history, payment information, etc.</p><p>When you embed your application in the dashboard, your application receives the context of the conversation and contact as a window event. To receive this context, implement a listener for the message event on your page.</p><p>You can manage your existing dashboard apps from this page or add a new one using the 'Add a dashboard app' button.</p><p>Open the Dashboard Apps handbook in another tab for a helping hand.</p>",
+      "DESCRIPTION": "With Dashboard Apps, you can easily integrate third-party applications directly into your Chatwoot dashboard, providing agents with valuable context about customers. This can include information such as user details, order history, payment information, and more. It's a great way to streamline your support processes and provide a better experience for both your agents and your customers.",
       "LIST": {
-        "404": "There are no dashboard apps configured on this account yet",
+        "404": "There are no dashboard apps configured on this account yet.",
         "LOADING": "Fetching dashboard apps...",
         "TABLE_HEADER": ["Name", "Endpoint"],
         "EDIT_TOOLTIP": "Edit app",
@@ -105,33 +105,33 @@
       },
       "FORM": {
         "TITLE_LABEL": "Name",
-        "TITLE_PLACEHOLDER": "Enter a name for your dashboard app",
-        "TITLE_ERROR": "A name for the dashboard app is required",
+        "TITLE_PLACEHOLDER": "Name your dashboard app for internal reference.",
+        "TITLE_ERROR": "A name for the dashboard app is required.",
         "URL_LABEL": "Endpoint",
-        "URL_PLACEHOLDER": "Enter the endpoint URL where your app is hosted",
-        "URL_ERROR": "A valid URL is required"
+        "URL_PLACEHOLDER": "Please provide the URL endpoint where your application is hosted.",
+        "URL_ERROR": "A valid URL is required."
       },
       "CREATE": {
         "HEADER": "Add a new dashboard app",
         "FORM_SUBMIT": "Submit",
         "FORM_CANCEL": "Cancel",
-        "API_SUCCESS": "Dashboard app configured successfully",
-        "API_ERROR": "We couldn't create an app. Please try again later"
+        "API_SUCCESS": "Dashboard app configured successfully.",
+        "API_ERROR": "We couldn't integrate the app. Please try again."
       },
       "UPDATE": {
         "HEADER": "Edit dashboard app",
         "FORM_SUBMIT": "Update",
         "FORM_CANCEL": "Cancel",
-        "API_SUCCESS": "Dashboard app updated successfully",
-        "API_ERROR": "We couldn't update the app. Please try again later"
+        "API_SUCCESS": "Dashboard app updated successfully.",
+        "API_ERROR": "We couldn't update the app. Please try again."
       },
       "DELETE": {
         "CONFIRM_YES": "Yes, delete it",
         "CONFIRM_NO": "No, keep it",
         "TITLE": "Confirm deletion",
         "MESSAGE": "Are you sure to delete the app - %{appName}?",
-        "API_SUCCESS": "Dashboard app deleted successfully",
-        "API_ERROR": "We couldn't delete the app. Please try again later"
+        "API_SUCCESS": "Dashboard app deleted successfully.",
+        "API_ERROR": "We couldn't delete the app. Please try again."
       }
     }
   }

@@ -101,7 +101,8 @@
       "REPORTS": "Reports",
       "CONVERSATION": "Conversation",
       "CHANGE_ASSIGNEE": "Change assignee",
-      "CHANGE_TEAM": "Change Team",
+      "CHANGE_PRIORITY": "Change priority",
+      "CHANGE_TEAM": "Change team",
       "ADD_LABEL": "Add label to the conversation",
       "REMOVE_LABEL": "Remove label from the conversation",
       "SETTINGS": "Settings"
@@ -126,6 +127,7 @@
       "GO_TO_NOTIFICATIONS": "Go to Notifications",
       "ADD_LABELS_TO_CONVERSATION": "Add label to the conversation",
       "ASSIGN_AN_AGENT": "Assign an agent",
+      "ASSIGN_PRIORITY": "Assign priority",
       "ASSIGN_A_TEAM": "Assign a team",
       "MUTE_CONVERSATION": "Mute conversation",
       "UNMUTE_CONVERSATION": "Unmute conversation",

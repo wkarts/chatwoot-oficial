@@ -1,79 +1,79 @@
 {
   "AGENT_MGMT": {
     "HEADER": "Agents",
-    "HEADER_BTN_TXT": "Add Agent",
-    "LOADING": "Fetching Agent List",
-    "SIDEBAR_TXT": "<p><b>Agents</b></p> <p> An <b>Agent</b> is a member of your Customer Support team. </p><p> Agents will be able to view and reply to messages from your users. The list shows all agents currently in your account. </p><p> Click on <b>Add Agent</b> to add a new agent. Agent you add will receive an email with a confirmation link to activate their account, after which they can access Chatwoot and respond to messages. </p><p> Access to Chatwoot's features are based on following roles. </p><p> <b>Agent</b> - Agents with this role can only access inboxes, reports and conversations. They can assign conversations to other agents or themselves and resolve conversations.</p><p> <b>Administrator</b> - Administrator will have access to all Chatwoot features enabled for your account, including settings, along with all of a normal agents' privileges.</p>",
+    "HEADER_BTN_TXT": "Add agent",
+    "LOADING": "Fetching agent list",
+    "SIDEBAR_TXT": "<p><b>Agents</b></p> <p> An agent is a member of your team who can answer customer conversations. </p><p> You can manage your existing agents from this page or invite new members using the "Add agent" button. Upon being invited, they will receive a confirmation email with a link to activate their account and start saving the day, one customer at a time. </p><p> In Chatwoot, there are two types of roles: </p><p> <b>Agent</b> : This role provides access to inboxes, reports, and conversations. Agents can assign and resolve conversations as well. </p><p> <b>Administrator</b> : This role provides full access to all Chatwoot features and settings, in addition to agent privileges. Administrators have complete control over the account.</p> <p> Open the Agents handbook in another tab for a helping hand. </p>",
     "AGENT_TYPES": {
       "ADMINISTRATOR": "Administrator",
       "AGENT": "Agent"
     },
     "LIST": {
-      "404": "There are no agents associated to this account",
-      "TITLE": "Manage agents in your team",
-      "DESC": "You can add/remove agents to/in your team.",
+      "404": "There are no agents associated with this account.",
+      "TITLE": "Manage agents in your team.",
+      "DESC": "You can add/remove agents to/from your team.",
       "NAME": "Name",
-      "EMAIL": "EMAIL",
+      "EMAIL": "Email",
       "STATUS": "Status",
       "ACTIONS": "Actions",
       "VERIFIED": "Verified",
       "VERIFICATION_PENDING": "Verification Pending"
     },
     "ADD": {
-      "TITLE": "Add agent to your team",
-      "DESC": "You can add people who will be able to handle support for your inboxes.",
+      "TITLE": "Add an agent to your team.",
+      "DESC": "Invite members from your team to join your Chatwoot squad.",
       "CANCEL_BUTTON_TEXT": "Cancel",
       "FORM": {
         "NAME": {
-          "LABEL": "Agent Name",
-          "PLACEHOLDER": "Please enter a name of the agent"
+          "LABEL": "Agent name",
+          "PLACEHOLDER": "Please enter the agent's name."
         },
         "AGENT_TYPE": {
           "LABEL": "Role",
-          "PLACEHOLDER": "Please select a role",
-          "ERROR": "Role is required"
+          "PLACEHOLDER": "Please select a role.",
+          "ERROR": "Role is required."
         },
 
         "EMAIL": {
-          "LABEL": "Email Address",
-          "PLACEHOLDER": "Please enter an email address of the agent"
+          "LABEL": "Email address",
+          "PLACEHOLDER": "Please enter the agent's email address."
         },
-        "SUBMIT": "Add Agent"
+        "SUBMIT": "Add agent"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Agent added successfully",
-        "EXIST_MESSAGE": "Agent email already in use, Please try another email address",
-        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+        "SUCCESS_MESSAGE": "Agent added successfully.",
+        "EXIST_MESSAGE": "Agent email already in use. Please try another email address.",
+        "ERROR_MESSAGE": "Could not connect to Woot server. Please try again later."
       }
     },
     "DELETE": {
       "BUTTON_TEXT": "Delete",
       "API": {
-        "SUCCESS_MESSAGE": "Agent deleted successfully",
-        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+        "SUCCESS_MESSAGE": "Agent deleted successfully.",
+        "ERROR_MESSAGE": "Could not connect to Woot server. Please try again later."
       },
       "CONFIRM": {
-        "TITLE": "Confirm Deletion",
-        "MESSAGE": "Are you sure to delete ",
-        "YES": "Yes, Delete ",
-        "NO": "No, Keep "
+        "TITLE": "Confirm agent removal.",
+        "MESSAGE": "Are you sure you want to remove Agent ?",
+        "YES": "Yes, delete ",
+        "NO": "No, keep "
       }
     },
     "EDIT": {
       "TITLE": "Edit agent",
       "FORM": {
         "NAME": {
-          "LABEL": "Agent Name",
-          "PLACEHOLDER": "Please enter a name of the agent"
+          "LABEL": "Agent name",
+          "PLACEHOLDER": "Please enter the agent's name."
         },
         "AGENT_TYPE": {
           "LABEL": "Role",
-          "PLACEHOLDER": "Please select a role",
-          "ERROR": "Role is required"
+          "PLACEHOLDER": "Please select a role.",
+          "ERROR": "Role is required."
         },
         "EMAIL": {
-          "LABEL": "Email Address",
-          "PLACEHOLDER": "Please enter an email address of the agent"
+          "LABEL": "Email address",
+          "PLACEHOLDER": "Please enter an email address of the agent."
         },
         "AGENT_AVAILABILITY": {
           "LABEL": "Availability",
@@ -85,14 +85,14 @@
       "BUTTON_TEXT": "Edit",
       "CANCEL_BUTTON_TEXT": "Cancel",
       "API": {
-        "SUCCESS_MESSAGE": "Agent updated successfully",
-        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+        "SUCCESS_MESSAGE": "Agent updated successfully.",
+        "ERROR_MESSAGE": "Could not connect to Woot server, Please try again later."
       },
       "PASSWORD_RESET": {
-        "ADMIN_RESET_BUTTON": "Reset Password",
-        "ADMIN_SUCCESS_MESSAGE": "An email with reset password instructions has been sent to the agent",
-        "SUCCESS_MESSAGE": "Agent password reset successfully",
-        "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
+        "ADMIN_RESET_BUTTON": "Reset password",
+        "ADMIN_SUCCESS_MESSAGE": "An email with reset password instructions has been sent to the agent.",
+        "SUCCESS_MESSAGE": "Agent password reset successfully.",
+        "ERROR_MESSAGE": "Could not connect to Woot server. Please try again later."
       }
     },
     "SEARCH": {

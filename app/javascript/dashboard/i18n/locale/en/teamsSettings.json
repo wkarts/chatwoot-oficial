@@ -1,16 +1,16 @@
 {
   "TEAMS_SETTINGS": {
-    "NEW_TEAM": "Create new team",
+    "NEW_TEAM": "Add team",
     "HEADER": "Teams",
-    "SIDEBAR_TXT": "<p><b>Teams</b></p> <p>Teams let you organize your agents into groups based on their responsibilities. <br /> An agent can be part of multiple teams. You can assign conversations to a team when you are working collaboratively. </p>",
+    "SIDEBAR_TXT": "<p><b>Teams</b></p> <p>Round up the troops! Teams are a great way to organize your agents based on their roles and responsibilities. <br /> Your agents can be part of multiple teams. You can assign conversations to a team when you are working collaboratively. </p> <p> You can manage your existing teams from this page or make new ones using the 'Add team' button.</p> <p> Open the Teams handbook in another tab for a helping hand.</p>",
     "LIST": {
-      "404": "There are no teams created on this account.",
+      "404": "There are no teams created in your account.",
       "EDIT_TEAM": "Edit team"
     },
     "CREATE_FLOW": {
       "CREATE": {
         "TITLE": "Create a new team",
-        "DESC": "Add a title and description to your new team."
+        "DESC": "Provide basic details for your new team."
       },
       "AGENTS": {
         "BUTTON_TEXT": "Add agents to team",
@@ -37,14 +37,14 @@
     },
     "EDIT_FLOW": {
       "CREATE": {
-        "TITLE": "Edit your team details",
-        "DESC": "Edit title and description to your team.",
+        "TITLE": "Edit your team's details",
+        "DESC": "Provide a new title and description for your team.",
         "BUTTON_TEXT": "Update team"
       },
       "AGENTS": {
         "BUTTON_TEXT": "Update agents in team",
-        "TITLE": "Add agents to team - %{teamName}",
-        "DESC": "Add Agents to your newly created team. All the added agents will be notified when a conversation is assigned to this team."
+        "TITLE": "Edit agents to team - %{teamName}",
+        "DESC": "Edit Agents to your newly created team. All the added agents will be notified when a conversation is assigned to this team."
       },
       "WIZARD": [
         {
@@ -65,13 +65,13 @@
       ]
     },
     "TEAM_FORM": {
-      "ERROR_MESSAGE": "Couldn't save the team details. Try again."
+      "ERROR_MESSAGE": "Couldn't save the team details. Please try again."
     },
     "AGENTS": {
       "AGENT": "AGENT",
       "EMAIL": "EMAIL",
       "BUTTON_TEXT": "Add agents",
-      "ADD_AGENTS": "Adding Agents to your Team...",
+      "ADD_AGENTS": "Adding agents to your team...",
       "SELECT": "select",
       "SELECT_ALL": "select all agents",
       "SELECTED_COUNT": "%{selected} out of %{total} agents selected."
@@ -88,14 +88,14 @@
 
     "FINISH": {
       "TITLE": "Your team is ready!",
-      "MESSAGE": "You can now collaborate as a team on conversations. Happy supporting ",
+      "MESSAGE": "You can now collaborate as a team on conversations. Happy supporting! ",
       "BUTTON_TEXT": "Finish"
     },
     "DELETE": {
       "BUTTON_TEXT": "Delete",
       "API": {
         "SUCCESS_MESSAGE": "Team deleted successfully.",
-        "ERROR_MESSAGE": "Couldn't delete the team. Try again."
+        "ERROR_MESSAGE": "Could not delete the team. Please try again."
       },
       "CONFIRM": {
         "TITLE": "Are you sure want to delete - %{teamName}",
@@ -111,11 +111,11 @@
       "CREATE": "Create team",
       "NAME": {
         "LABEL": "Team name",
-        "PLACEHOLDER": "Example: Sales, Customer Support"
+        "PLACEHOLDER": "Sales, Engineering, Customer Success, etc."
       },
       "DESCRIPTION": {
         "LABEL": "Team Description",
-        "PLACEHOLDER": "Short description about this team."
+        "PLACEHOLDER": "Describe your team."
       },
       "AUTO_ASSIGN": {
         "LABEL": "Allow auto assign for this team."

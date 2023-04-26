@@ -1,49 +1,49 @@
 {
   "GENERAL_SETTINGS": {
-    "TITLE": "Account settings",
+    "TITLE": "Account Settings",
     "SUBMIT": "Update settings",
     "BACK": "Back",
     "UPDATE": {
-      "ERROR": "Could not update settings, try again!",
-      "SUCCESS": "Successfully updated account settings"
+      "ERROR": "An error occurred while updating settings. Please try again.",
+      "SUCCESS": "Account settings updated successfully."
     },
     "FORM": {
-      "ERROR": "Please fix form errors",
+      "ERROR": "Please fix form errors.",
       "GENERAL_SECTION": {
         "TITLE": "General settings",
         "NOTE": ""
       },
       "ACCOUNT_ID": {
         "TITLE": "Account ID",
-        "NOTE": "This ID is required if you are building an API based integration"
+        "NOTE": "This ID is required when building an API-based integration."
       },
       "NAME": {
         "LABEL": "Account name",
-        "PLACEHOLDER": "Your account name",
-        "ERROR": "Please enter a valid account name"
+        "PLACEHOLDER": "Please enter your account name",
+        "ERROR": "Please enter a valid account name."
       },
       "LANGUAGE": {
         "LABEL": "Site language",
-        "PLACEHOLDER": "Your account name",
+        "PLACEHOLDER": "Choose your preferred language.",
         "ERROR": ""
       },
       "DOMAIN": {
-        "LABEL": "Incoming Email Domain",
-        "PLACEHOLDER": "The domain where you will receive the emails",
+        "LABEL": "Incoming email domain",
+        "PLACEHOLDER": "Please enter the domain where will receive the emails.",
         "ERROR": ""
       },
       "SUPPORT_EMAIL": {
-        "LABEL": "Support Email",
-        "PLACEHOLDER": "Your company's support email",
+        "LABEL": "Support email",
+        "PLACEHOLDER": "Please enter your company's support email.",
         "ERROR": ""
       },
       "AUTO_RESOLVE_DURATION": {
-        "LABEL": "Number of days after a ticket should auto resolve if there is no activity",
+        "LABEL": "Number of days after a ticket should auto resolve if there is no activity.",
         "PLACEHOLDER": "30",
-        "ERROR": "Please enter a valid auto resolve duration (minimum 1 day and maximum 999 days)"
+        "ERROR": "Please enter a valid auto-resolve duration between 1-999 days (inclusive)."
       },
       "FEATURES": {
-        "INBOUND_EMAIL_ENABLED": "Conversation continuity with emails is enabled for your account.",
+        "INBOUND_EMAIL_ENABLED": "Your account has the ability to maintain a continuous flow of conversation through emails, making it easier to keep track of your conversations.",
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "You can receive emails in your custom domain now."
       }
     },
@@ -52,37 +52,37 @@
   },
   "FORMS": {
     "MULTISELECT": {
-      "ENTER_TO_SELECT": "Press enter to select",
-      "ENTER_TO_REMOVE": "Press enter to remove",
+      "ENTER_TO_SELECT": "Press Enter to select",
+      "ENTER_TO_REMOVE": "Press Enter to remove",
       "SELECT_ONE": "Select one",
       "SELECT": "Select"
     }
   },
   "NOTIFICATIONS_PAGE": {
     "HEADER": "Notifications",
-    "MARK_ALL_DONE": "Mark All Done",
-    "DELETE_TITLE": "deleted",
+    "MARK_ALL_DONE": "Mark all done",
+    "DELETE_TITLE": "Deleted",
     "UNREAD_NOTIFICATION": {
-      "TITLE": "Unread Notifications",
+      "TITLE": "Unread notifications",
       "ALL_NOTIFICATIONS": "View all notifications",
       "LOADING_UNREAD_MESSAGE": "Loading unread notifications...",
       "EMPTY_MESSAGE": "You have no unread notifications"
     },
     "LIST": {
       "LOADING_MESSAGE": "Loading notifications...",
-      "404": "No Notifications",
+      "404": "No notifications",
       "TABLE_HEADER": [
         "Name",
-        "Phone Number",
+        "Phone number",
         "Conversations",
-        "Last Contacted"
+        "Last contacted"
       ]
     },
     "TYPE_LABEL": {
       "conversation_creation": "New conversation",
-      "conversation_assignment": "Conversation Assigned",
-      "assigned_conversation_new_message": "New Message",
-      "participating_conversation_new_message": "New Message",
+      "conversation_assignment": "Conversation assigned",
+      "assigned_conversation_new_message": "New message",
+      "participating_conversation_new_message": "New message",
       "conversation_mention": "Mention"
     }
   },
@@ -100,7 +100,7 @@
       "GENERAL": "General",
       "REPORTS": "Reports",
       "CONVERSATION": "Conversation",
-      "CHANGE_ASSIGNEE": "Change Assignee",
+      "CHANGE_ASSIGNEE": "Change assignee",
       "CHANGE_TEAM": "Change Team",
       "ADD_LABEL": "Add label to the conversation",
       "REMOVE_LABEL": "Remove label from the conversation",

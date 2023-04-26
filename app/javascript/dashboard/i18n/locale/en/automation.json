@@ -1,28 +1,28 @@
 {
   "AUTOMATION": {
-    "HEADER": "Automations",
-    "HEADER_BTN_TXT": "Add Automation Rule",
-    "LOADING": "Fetching automation rules",
-    "SIDEBAR_TXT": "<p><b>Automation Rules</b> <p>Automation can replace and automate existing processes that require manual effort. You can do many things with automation, including adding labels and assigning conversation to the best agent. So the team focuses on what they do best and spends more little time on manual tasks.</p>",
+    "HEADER": "Automation",
+    "HEADER_BTN_TXT": "Add automation rule",
+    "LOADING": "Fetching automation rules...",
+    "SIDEBAR_TXT": "<p><b>Automation Rules</b> <p>Our automation rules can do all the grunt work for you except the coffee runs. This leaves more time for your team to do what they do best – delivering outstanding customer service. You can use automation to add labels, assign conversations to the best agent, and perform a lot more other tasks.</p> <p> You can manage your existing automation rules from this page or create new ones using the 'Add automation rule' button. </p> <p> Open the Automation handbook in another tab for a helping hand.</p>",
     "ADD": {
-      "TITLE": "Add Automation Rule",
+      "TITLE": "Add automation rule",
       "SUBMIT": "Create",
       "CANCEL_BUTTON_TEXT": "Cancel",
       "FORM": {
         "NAME": {
-          "LABEL": "Rule Name",
-          "PLACEHOLDER": "Enter rule name",
-          "ERROR": "Name is required"
+          "LABEL": "Rule name",
+          "PLACEHOLDER": "Name your rule for internal reference.",
+          "ERROR": "Name is required."
         },
         "DESC": {
           "LABEL": "Description",
-          "PLACEHOLDER": "Enter rule description",
-          "ERROR": "Description is required"
+          "PLACEHOLDER": "Describe your rule.",
+          "ERROR": "Description is required."
         },
         "EVENT": {
           "LABEL": "Event",
           "PLACEHOLDER": "Please select one",
-          "ERROR": "Event is required"
+          "ERROR": "Event is required."
         },
         "CONDITIONS": {
           "LABEL": "Conditions"
@@ -31,11 +31,11 @@
           "LABEL": "Actions"
         }
       },
-      "CONDITION_BUTTON_LABEL": "Add Condition",
-      "ACTION_BUTTON_LABEL": "Add Action",
+      "CONDITION_BUTTON_LABEL": "Add condition",
+      "ACTION_BUTTON_LABEL": "Add action",
       "API": {
-        "SUCCESS_MESSAGE": "Automation rule added successfully",
-        "ERROR_MESSAGE": "Could not able to create a automation rule, Please try again later"
+        "SUCCESS_MESSAGE": "Automation rule added successfully.",
+        "ERROR_MESSAGE": "Could not create the automation rule. Please try again."
       }
     },
     "LIST": {
@@ -45,37 +45,37 @@
         "Active",
         "Created on"
       ],
-      "404": "No automation rules found"
+      "404": "No automation rules found."
     },
     "DELETE": {
-      "TITLE": "Delete Automation Rule",
+      "TITLE": "Delete automation rule",
       "SUBMIT": "Delete",
       "CANCEL_BUTTON_TEXT": "Cancel",
       "CONFIRM": {
-        "TITLE": "Confirm Deletion",
+        "TITLE": "Confirm deletion",
         "MESSAGE": "Are you sure to delete ",
-        "YES": "Yes, Delete ",
-        "NO": "No, Keep "
+        "YES": "Yes, delete ",
+        "NO": "No, keep "
       },
       "API": {
-        "SUCCESS_MESSAGE": "Automation rule deleted successfully",
-        "ERROR_MESSAGE": "Could not able to delete a automation rule, Please try again later"
+        "SUCCESS_MESSAGE": "Automation rule deleted successfully.",
+        "ERROR_MESSAGE": "Could not delete the automation rule. Please try again."
       }
     },
     "EDIT": {
-      "TITLE": "Edit Automation Rule",
+      "TITLE": "Edit automation rule",
       "SUBMIT": "Update",
       "CANCEL_BUTTON_TEXT": "Cancel",
       "API": {
-        "SUCCESS_MESSAGE": "Automation rule updated successfully",
-        "ERROR_MESSAGE": "Could not update automation rule, Please try again later"
+        "SUCCESS_MESSAGE": "Automation rule updated successfully.",
+        "ERROR_MESSAGE": "Could not update automation rule. Please try again."
       }
     },
     "CLONE": {
       "TOOLTIP": "Clone",
       "API": {
-        "SUCCESS_MESSAGE": "Automation cloned successfully",
-        "ERROR_MESSAGE": "Could not clone automation rule, Please try again later"
+        "SUCCESS_MESSAGE": "Automation cloned successfully.",
+        "ERROR_MESSAGE": "Could not clone automation rule. Please try again."
       }
     },
     "FORM": {
@@ -83,36 +83,36 @@
       "CREATE": "Create",
       "DELETE": "Delete",
       "CANCEL": "Cancel",
-      "RESET_MESSAGE": "Changing event type will reset the conditions and events you have added below"
+      "RESET_MESSAGE": "Switching the event type will reset the conditions and events you've created below."
     },
     "CONDITION": {
-      "DELETE_MESSAGE": "You need to have atleast one condition to save",
+      "DELETE_MESSAGE": "You need to have at least one condition to save.",
       "CONTACT_CUSTOM_ATTR_LABEL": "Contact Custom Attributes",
       "CONVERSATION_CUSTOM_ATTR_LABEL": "Conversation Custom Attributes"
     },
     "ACTION": {
-      "DELETE_MESSAGE": "You need to have atleast one action to save",
-      "TEAM_MESSAGE_INPUT_PLACEHOLDER": "Enter your message here",
+      "DELETE_MESSAGE": "You need to have at least one action to save.",
+      "TEAM_MESSAGE_INPUT_PLACEHOLDER": "Enter your message here.",
       "TEAM_DROPDOWN_PLACEHOLDER": "Select teams"
     },
     "TOGGLE": {
-      "ACTIVATION_TITLE": "Activate Automation Rule",
-      "DEACTIVATION_TITLE": "Deactivate Automation Rule",
-      "ACTIVATION_DESCRIPTION": "This action will activate the automation rule '{automationName}'. Are you sure you want to proceed?",
-      "DEACTIVATION_DESCRIPTION": "This action will deactivate the automation rule '{automationName}'. Are you sure you want to proceed?",
-      "ACTIVATION_SUCCESFUL": "Automation Rule Activated Successfully",
-      "DEACTIVATION_SUCCESFUL": "Automation Rule Deactivated Successfully",
-      "ACTIVATION_ERROR": "Could not Activate Automation, Please try again later",
-      "DEACTIVATION_ERROR": "Could not Deactivate Automation, Please try again later",
+      "ACTIVATION_TITLE": "Activate automation rule",
+      "DEACTIVATION_TITLE": "Deactivate automation rule",
+      "ACTIVATION_DESCRIPTION": "This action will activate the automation rule '{automationName}'. Are you sure to proceed?",
+      "DEACTIVATION_DESCRIPTION": "This action will deactivate the automation rule '{automationName}'. Are you sure to proceed?",
+      "ACTIVATION_SUCCESFUL": "Automation rule activated successfully.",
+      "DEACTIVATION_SUCCESFUL": "Automation rule deactivated successfully.",
+      "ACTIVATION_ERROR": "Could not activate automation rule. Please try again.",
+      "DEACTIVATION_ERROR": "Could not deactivate automation rule. Please try again.",
       "CONFIRMATION_LABEL": "Yes",
       "CANCEL_LABEL": "No"
     },
     "ATTACHMENT": {
-      "UPLOAD_ERROR": "Could not upload attachment, Please try again",
-      "LABEL_IDLE": "Upload Attachment",
+      "UPLOAD_ERROR": "Could not upload attachment. Please try again.",
+      "LABEL_IDLE": "Upload attachment",
       "LABEL_UPLOADING": "Uploading...",
-      "LABEL_UPLOADED": "Successfully Uploaded",
-      "LABEL_UPLOAD_FAILED": "Upload Failed"
+      "LABEL_UPLOADED": "Successfully uploaded",
+      "LABEL_UPLOAD_FAILED": "Upload failed"
     }
   }
 }

@@ -2,32 +2,32 @@
   "LABEL_MGMT": {
     "HEADER": "Labels",
     "HEADER_BTN_TXT": "Add label",
-    "LOADING": "Fetching labels",
-    "SEARCH_404": "There are no items matching this query",
-    "SIDEBAR_TXT": "<p><b>Labels</b> <p>Labels help you to categorize conversations and prioritize them. You can assign label to a conversation from the sidepanel. <br /><br />Labels are tied to the account and can be used to create custom workflows in your organization. You can assign custom color to a label, it makes it easier to identify the label. You will be able to display the label on the sidebar to filter the conversations easily.</p>",
+    "LOADING": "Fetching labels...",
+    "SEARCH_404": "We couldn't find any labels that match your search. It's like searching for a unicorn, so try something else?",
+    "SIDEBAR_TXT": "<p><b>Labels</b> <p>Labeling conversations or contacts is like giving them colored folders – an easy way to organize and find them later. Just use the 'Conversation Actions' menu while chatting to label a conversation. The labels will also appear on the secondary sidebar of the 'Conversations' or 'Contacts' tab for quick filtering.</p> <p> You can manage your existing labels from this page or create new ones using the 'Add label' button. </p> <p> Open the Labels handbook in another tab for a helping hand.</p>",
     "LIST": {
       "404": "There are no labels available in this account.",
       "TITLE": "Manage labels",
-      "DESC": "Labels let you group the conversations together.",
+      "DESC": "Labels let you group conversations together.",
       "TABLE_HEADER": ["Name", "Description", "Color"]
     },
     "FORM": {
       "NAME": {
-        "LABEL": "Label Name",
+        "LABEL": "Label name",
         "PLACEHOLDER": "Label name",
-        "REQUIRED_ERROR": "Label name is required",
-        "MINIMUM_LENGTH_ERROR": "Minimum length 2 is required",
-        "VALID_ERROR": "Only Alphabets, Numbers, Hyphen and Underscore are allowed"
+        "REQUIRED_ERROR": "Label name is required.",
+        "MINIMUM_LENGTH_ERROR": "Minimum length 2 is required.",
+        "VALID_ERROR": "Only letters, numbers, hyphen and underscore are allowed."
       },
       "DESCRIPTION": {
         "LABEL": "Description",
-        "PLACEHOLDER": "Label Description"
+        "PLACEHOLDER": "Label description"
       },
       "COLOR": {
         "LABEL": "Color"
       },
       "SHOW_ON_SIDEBAR": {
-        "LABEL": "Show label on sidebar"
+        "LABEL": "Show label on sidebar."
       },
       "EDIT": "Edit",
       "CREATE": "Create",
@@ -38,28 +38,28 @@
       "TITLE": "Add label",
       "DESC": "Labels let you group the conversations together.",
       "API": {
-        "SUCCESS_MESSAGE": "Label added successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "Label added successfully.",
+        "ERROR_MESSAGE": "There was an error. Please try again."
       }
     },
     "EDIT": {
       "TITLE": "Edit label",
       "API": {
-        "SUCCESS_MESSAGE": "Label updated successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "Label updated successfully.",
+        "ERROR_MESSAGE": "There was an error. Please try again."
       }
     },
     "DELETE": {
       "BUTTON_TEXT": "Delete",
       "API": {
-        "SUCCESS_MESSAGE": "Label deleted successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "Label deleted successfully.",
+        "ERROR_MESSAGE": "There was an error. Please try again."
       },
       "CONFIRM": {
-        "TITLE": "Confirm Deletion",
+        "TITLE": "Confirm deletion",
         "MESSAGE": "Are you sure to delete ",
-        "YES": "Yes, Delete ",
-        "NO": "No, Keep "
+        "YES": "Yes, delete ",
+        "NO": "No, keep "
       }
     }
   }

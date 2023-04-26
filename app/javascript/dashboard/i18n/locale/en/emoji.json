@@ -1,6 +1,6 @@
 {
   "EMOJI": {
     "PLACEHOLDER": "Search emojis",
-    "NOT_FOUND": "No emoji match your search"
+    "NOT_FOUND": "Hmm, it seems we couldn't find any emojis that match your search. Perhaps try another keyword?"
   }
 }

@@ -44,6 +44,8 @@ class ReplyMailbox < ApplicationMailbox
   # find conversation uuid from below pattern
   # reply+<conversation-uuid>@<mailer-domain.com>
   def find_conversation_with_uuid
+    return if conversation_uuid_belongs_to_from_address?
+
     @conversation = Conversation.find_by(uuid: conversation_uuid)
     validate_resource @conversation
   end
@@ -56,6 +58,9 @@ class ReplyMailbox < ApplicationMailbox
 
   def find_conversation_by_message_id(in_reply_to)
     @message = Message.find_by(source_id: in_reply_to)
+
+    return if in_reply_to_incoming?
+
     @conversation = @message.conversation if @message.present?
     @conversation_uuid = @conversation.uuid if @conversation.present?
   end
@@ -71,6 +76,12 @@ class ReplyMailbox < ApplicationMailbox
       break if match_result
     end
     find_by_in_reply_to_addresses(match_result, in_reply_to_addresses)
+  end
+
+  def in_reply_to_incoming?
+    return false if @message.blank?
+
+    @message.email['to'] == @mail.from
   end
 
   def find_by_in_reply_to_addresses(match_result, in_reply_to_addresses)

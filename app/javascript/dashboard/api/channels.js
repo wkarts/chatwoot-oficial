@@ -10,4 +10,9 @@ export default {
     urlData.params.omniauth_token = token;
     return axios.post(urlData.url(accountId), urlData.params);
   },
+  saveFacebookLoginToken(token, accountId) {
+    const urlData = endPoints('saveFacebookLoginToken');
+    urlData.params.omniauth_token = token;
+    return axios.post(urlData.url(accountId), urlData.params);
+  },
 };

@@ -40,6 +40,13 @@ const endPoints = {
     params: { omniauth_token: '' },
   },
 
+  saveFacebookLoginToken: {
+    url(accountId) {
+      return `api/v1/accounts/${accountId}/callbacks/facebook_pages.json`;
+    },
+    params: { omniauth_token: '' },
+  },
+
   deleteAvatar: {
     url: '/api/v1/profile/avatar',
   },

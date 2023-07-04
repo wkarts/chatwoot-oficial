@@ -68,7 +68,7 @@
       </label>
     </div>
 
-    <facebook/>
+    <whatsapp-login/>
 
     <div class="medium-12 columns">
       <woot-submit-button
@@ -85,9 +85,12 @@ import alertMixin from 'shared/mixins/alertMixin';
 import { required } from 'vuelidate/lib/validators';
 import router from '../../../../index';
 import { isPhoneE164OrEmpty, isNumber } from 'shared/helpers/Validators';
-import Facebook from '../channels/Facebook';
+import WhatsappLogin from '../channels/WhatsappLogin';
 
 export default {
+  components: {
+    WhatsappLogin
+  },
   mixins: [alertMixin],
   data() {
     return {

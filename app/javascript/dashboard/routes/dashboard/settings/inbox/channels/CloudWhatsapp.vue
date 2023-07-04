@@ -68,22 +68,7 @@
       </label>
     </div>
 
-    <div class="medium-8 columns">
-      <label :class="{ error: $v.apiKey.$error }">
-        <span>
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.API_KEY.LABEL') }}
-        </span>
-        <input
-          v-model.trim="apiKey"
-          type="text"
-          :placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.API_KEY.PLACEHOLDER')"
-          @blur="$v.apiKey.$touch"
-        />
-        <span v-if="$v.apiKey.$error" class="message">
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.API_KEY.ERROR') }}
-        </span>
-      </label>
-    </div>
+    <facebook/>
 
     <div class="medium-12 columns">
       <woot-submit-button
@@ -100,6 +85,7 @@ import alertMixin from 'shared/mixins/alertMixin';
 import { required } from 'vuelidate/lib/validators';
 import router from '../../../../index';
 import { isPhoneE164OrEmpty, isNumber } from 'shared/helpers/Validators';
+import Facebook from '../channels/Facebook';
 
 export default {
   mixins: [alertMixin],

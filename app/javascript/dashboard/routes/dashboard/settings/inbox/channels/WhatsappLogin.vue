@@ -160,6 +160,7 @@ export default {
     },
 
     async saveUserToken(token) {
+      // also save the businees account ID and phone number ID on this success in provider config.
       try {
         // save response in account channel::whatsapp account
       } catch (error) {

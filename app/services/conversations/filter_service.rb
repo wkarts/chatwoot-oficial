@@ -54,7 +54,7 @@ class Conversations::FilterService < FilterService
   end
 
   def base_relation
-    @account.conversations.left_outer_joins(:labels)
+    @account.conversations.left_outer_joins(:labels).distinct
   end
 
   def current_page

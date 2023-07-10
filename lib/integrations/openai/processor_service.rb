@@ -3,12 +3,15 @@ class Integrations::Openai::ProcessorService
   # 1 token is approx 4 characters
   # 4,096 * 4 = 16,384 characters, sticking to 15,000 to be safe
   TOKEN_LIMIT = 15_000
-  API_URL = 'https://api.openai.com/v1/chat/completions'.freeze
-  GPT_MODEL = 'gpt-3.5-turbo'.freeze
-
   ALLOWED_EVENT_NAMES = %w[rephrase summarize reply_suggestion].freeze
 
-  pattr_initialize [:hook!, :event!]
+  attr_reader :hook, :event, :api_url, :gpt_model
+
+  def initialize(hook:, event:)
+    @hook = hook
+    @event = event
+    set_api_url_and_gpt_model
+  end
 
   def perform
     event_name = event['name']
@@ -19,13 +22,18 @@ class Integrations::Openai::ProcessorService
 
   private
 
+  def set_api_url_and_gpt_model
+    @api_url = hook.settings['api_url'].presence || 'https://api.openai.com/v1/chat/completions'
+    @gpt_model = hook.settings['model_name'].presence || 'gpt-3.5-turbo'
+  end
+
   def valid_event_name?(event_name)
     ALLOWED_EVENT_NAMES.include?(event_name)
   end
 
   def rephrase_body
     {
-      model: GPT_MODEL,
+      model: gpt_model,
       messages: [
         { role: 'system',
           content: "You are a helpful support agent. Please rephrase the following response to a more #{event['data']['tone']} tone. " \
@@ -93,7 +101,7 @@ class Integrations::Openai::ProcessorService
 
   def summarize_body
     {
-      model: GPT_MODEL,
+      model: gpt_model,
       messages: [
         { role: 'system',
           content: 'Please summarize the key points from the following conversation between support agents and ' \
@@ -105,7 +113,7 @@ class Integrations::Openai::ProcessorService
 
   def reply_suggestion_body
     {
-      model: GPT_MODEL,
+      model: gpt_model,
       messages: [
         { role: 'system',
           content: 'Please suggest a reply to the following conversation between support agents and customer. Reply in the user\'s language.' }
@@ -131,7 +139,7 @@ class Integrations::Openai::ProcessorService
       'Authorization' => "Bearer #{hook.settings['api_key']}"
     }
 
-    response = HTTParty.post(API_URL, headers: headers, body: body)
+    response = HTTParty.post(api_url, headers: headers, body: body)
     JSON.parse(response.body)['choices'].first['message']['content']
   end
 end

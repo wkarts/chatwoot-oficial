@@ -11,6 +11,7 @@ import {
 } from './helpers/actionHelpers';
 import messageReadActions from './actions/messageReadActions';
 import messageTranslateActions from './actions/messageTranslateActions';
+import messageForwardActions from './actions/messageForwardActions';
 // actions
 const actions = {
   getConversation: async ({ commit }, conversationId) => {
@@ -451,6 +452,7 @@ const actions = {
 
   ...messageReadActions,
   ...messageTranslateActions,
+  ...messageForwardActions,
 };
 
 export default actions;

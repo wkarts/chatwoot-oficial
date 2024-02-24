@@ -12,7 +12,8 @@ class Twitter::WebhooksBaseService
       url: user['url'],
       description: user['description'],
       followers_count: user['followers_count'],
-      friends_count: user['friends_count']
+      friends_count: user['friends_count'],
+      social_twitter_user_name: user['screen_name']
     }
   end
 

@@ -6,7 +6,7 @@
         hasEndConversationEnabled &&
         showEndConversationButton
       "
-      class="button transparent compact"
+      class="button transparent compact rtl:rotate-180"
       :title="$t('END_CONVERSATION')"
       @click="resolveConversation"
     >
@@ -126,6 +126,11 @@ export default {
 .actions {
   button {
     margin-left: $space-normal;
+
+    [dir='rtl'] & {
+      margin-left: unset;
+      margin-right: $space-normal;
+    }
   }
 
   span {

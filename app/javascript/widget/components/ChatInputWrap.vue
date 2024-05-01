@@ -205,6 +205,11 @@ export default {
   display: flex;
   align-items: center;
   padding-left: $space-small;
+
+  [dir='rtl'] & {
+    padding-left: unset;
+    padding-right: $space-small;
+  }
 }
 
 .user-message-input {

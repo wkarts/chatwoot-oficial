@@ -96,6 +96,9 @@ export default {
         this.initializeAccount();
       }
     },
+    isRTLView() {
+      this.updateHTMLLangAndDir();
+    },
   },
   mounted() {
     this.initializeColorTheme();
@@ -112,6 +115,14 @@ export default {
     },
     setLocale(locale) {
       this.$root.$i18n.locale = locale;
+      this.updateHTMLLangAndDir();
+    },
+    updateHTMLLangAndDir() {
+      const html = document.documentElement;
+      if (html) {
+        html.setAttribute('lang', this.$i18n.locale);
+        html.setAttribute('dir', this.isRTLView ? 'rtl' : 'ltr');
+      }
     },
     async initializeAccount() {
       await this.$store.dispatch('accounts/get');

@@ -13,6 +13,7 @@ const FEATURE_HELP_URLS = {
   message_reply_to: 'https://chwt.app/hc/reply-to',
   sla: 'https://chwt.app/hc/sla',
   dashboard_apps: 'https://chwt.app/hc/dashboard-apps',
+  webhook: 'https://chwt.app/hc/webhooks',
 };
 
 export function getHelpUrlForFeature(featureName) {

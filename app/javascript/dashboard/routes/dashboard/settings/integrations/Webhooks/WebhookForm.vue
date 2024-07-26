@@ -32,7 +32,7 @@
             class="checkbox"
           />
           <label :for="event" class="text-sm">
-            {{ `${getEventLabel(event)} (${event})` }}
+            {{ `${$t(getEventNamei18n(event))} (${event})` }}
           </label>
         </div>
       </div>
@@ -56,8 +56,8 @@
 
 <script>
 import { required, url, minLength } from 'vuelidate/lib/validators';
-import webhookMixin from './webhookMixin';
 import wootConstants from 'dashboard/constants/globals';
+import { getEventNamei18n } from './webhookHelper';
 
 const { EXAMPLE_WEBHOOK_URL } = wootConstants;
 
@@ -73,7 +73,6 @@ const SUPPORTED_WEBHOOK_EVENTS = [
 ];
 
 export default {
-  mixins: [webhookMixin],
   props: {
     value: {
       type: Object,
@@ -122,6 +121,7 @@ export default {
         subscriptions: this.subscriptions,
       });
     },
+    getEventNamei18n,
   },
 };
 </script>

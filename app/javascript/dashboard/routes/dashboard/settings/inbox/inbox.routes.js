@@ -3,6 +3,7 @@ import { frontendURL } from '../../../../helper/URLHelper';
 import channelFactory from './channel-factory';
 
 const SettingsContent = () => import('../Wrapper.vue');
+const SettingsWrapper = () => import('../SettingsWrapper.vue');
 const InboxHome = () => import('./Index.vue');
 const Settings = () => import('./Settings.vue');
 const InboxChannel = () => import('./InboxChannels.vue');
@@ -14,17 +15,7 @@ export default {
   routes: [
     {
       path: frontendURL('accounts/:accountId/settings/inboxes'),
-      component: SettingsContent,
-      props: params => {
-        const showBackButton = params.name !== 'settings_inbox_list';
-        return {
-          headerTitle: 'INBOX_MGMT.HEADER',
-          headerButtonText: 'SETTINGS.INBOXES.NEW_INBOX',
-          icon: 'mail-inbox-all',
-          newButtonRoutes: ['settings_inbox_list'],
-          showBackButton,
-        };
-      },
+      component: SettingsWrapper,
       children: [
         {
           path: '',
@@ -38,6 +29,18 @@ export default {
             permissions: ['administrator'],
           },
         },
+      ],
+    },
+    {
+      path: frontendURL('accounts/:accountId/settings/inboxes'),
+      component: SettingsContent,
+      props: () => {
+        return {
+          headerTitle: 'INBOX_MGMT.HEADER',
+          showBackButton: true,
+        };
+      },
+      children: [
         {
           path: 'new',
           component: InboxChannel,

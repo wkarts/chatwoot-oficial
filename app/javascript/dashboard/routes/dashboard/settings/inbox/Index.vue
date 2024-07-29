@@ -1,113 +1,122 @@
 <template>
   <div class="flex-1 overflow-auto">
-    <div class="flex flex-row gap-4 p-8">
-      <div class="w-full lg:w-3/5">
-        <p
-          v-if="!inboxesList.length"
-          class="flex flex-col items-center justify-center h-full"
+    <BaseSettingsHeader
+      :title="$t('INBOX_MGMT.HEADER')"
+      :description="$t('INBOX_MGMT.DESCRIPTION')"
+      :link-text="$t('INBOX_MGMT.LEARN_MORE')"
+      feature-name="agents"
+    >
+      <template #actions>
+        <router-link
+          v-if="isAdmin"
+          class="button nice rounded-md"
+          :to="addAccountScoping('settings/inboxes/new')"
         >
-          {{ $t('INBOX_MGMT.LIST.404') }}
-          <router-link
-            v-if="isAdmin"
-            :to="addAccountScoping('settings/inboxes/new')"
-          >
-            {{ $t('SETTINGS.INBOXES.NEW_INBOX') }}
-          </router-link>
-        </p>
+          <fluent-icon icon="add-circle" type="outline" size="14" />
+          {{ $t('SETTINGS.INBOXES.NEW_INBOX') }}
+        </router-link>
+      </template>
+    </BaseSettingsHeader>
+    <div class="w-full flex flex-row gap-4 mt-6">
+      <p
+        v-if="!inboxesList.length"
+        class="flex flex-col items-center justify-center h-full"
+      >
+        {{ $t('INBOX_MGMT.LIST.404') }}
+        <router-link
+          v-if="isAdmin"
+          :to="addAccountScoping('settings/inboxes/new')"
+        >
+          {{ $t('SETTINGS.INBOXES.NEW_INBOX') }}
+        </router-link>
+      </p>
 
-        <table v-if="inboxesList.length" class="woot-table">
-          <tbody>
-            <tr v-for="item in inboxesList" :key="item.id">
-              <td>
+      <table
+        v-if="inboxesList.length"
+        class="min-w-full divide-y divide-slate-75 dark:divide-slate-700"
+      >
+        <tbody
+          class="divide-y divide-slate-50 dark:divide-slate-800 text-slate-700 dark:text-slate-300"
+        >
+          <tr v-for="item in inboxesList" :key="item.id">
+            <td class="py-4 pr-4">
+              <div class="flex flex-row gap-4">
                 <img
                   v-if="item.avatar_url"
-                  class="woot-thumbnail"
+                  class="h-10 w-10 rounded-full"
                   :src="item.avatar_url"
                   alt="No Page Image"
                 />
                 <img
                   v-else
-                  class="woot-thumbnail"
+                  class="h-10 w-10 rounded-full"
                   src="~dashboard/assets/images/flag.svg"
                   alt="No Page Image"
                 />
-              </td>
-              <!-- Short Code  -->
-              <td>
-                <span class="agent-name">{{ item.name }}</span>
-                <span v-if="item.channel_type === 'Channel::FacebookPage'">
-                  Facebook
-                </span>
-                <span v-if="item.channel_type === 'Channel::WebWidget'">
-                  Website
-                </span>
-                <span v-if="item.channel_type === 'Channel::TwitterProfile'">
-                  Twitter
-                </span>
-                <span v-if="item.channel_type === 'Channel::TwilioSms'">
-                  {{ twilioChannelName(item) }}
-                </span>
-                <span v-if="item.channel_type === 'Channel::Whatsapp'">
-                  Whatsapp
-                </span>
-                <span v-if="item.channel_type === 'Channel::Sms'"> Sms </span>
-                <span v-if="item.channel_type === 'Channel::Email'">
-                  Email
-                </span>
-                <span v-if="item.channel_type === 'Channel::Telegram'">
-                  Telegram
-                </span>
-                <span v-if="item.channel_type === 'Channel::Line'">Line</span>
-                <span v-if="item.channel_type === 'Channel::Api'">
-                  {{ globalConfig.apiChannelName || 'API' }}
-                </span>
-              </td>
-
-              <!-- Action Buttons -->
-              <td>
-                <div class="button-wrapper">
-                  <router-link
-                    :to="addAccountScoping(`settings/inboxes/${item.id}`)"
-                  >
-                    <woot-button
-                      v-if="isAdmin"
-                      v-tooltip.top="$t('INBOX_MGMT.SETTINGS')"
-                      variant="smooth"
-                      size="tiny"
-                      icon="settings"
-                      color-scheme="secondary"
-                      class-names="grey-btn"
-                    />
-                  </router-link>
-
-                  <woot-button
-                    v-if="isAdmin"
-                    v-tooltip.top="$t('INBOX_MGMT.DELETE.BUTTON_TEXT')"
-                    variant="smooth"
-                    color-scheme="alert"
-                    size="tiny"
-                    class-names="grey-btn"
-                    :is-loading="loading[item.id]"
-                    icon="dismiss-circle"
-                    @click="openDelete(item)"
-                  />
+                <div>
+                  <span class="block font-medium capitalize">
+                    {{ item.name }}
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::FacebookPage'">
+                    Facebook
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::WebWidget'">
+                    Website
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::TwitterProfile'">
+                    Twitter
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::TwilioSms'">
+                    {{ twilioChannelName(item) }}
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::Whatsapp'">
+                    Whatsapp
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::Sms'"> Sms </span>
+                  <span v-if="item.channel_type === 'Channel::Email'">
+                    Email
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::Telegram'">
+                    Telegram
+                  </span>
+                  <span v-if="item.channel_type === 'Channel::Line'">Line</span>
+                  <span v-if="item.channel_type === 'Channel::Api'">
+                    {{ globalConfig.apiChannelName || 'API' }}
+                  </span>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </div>
+            </td>
 
-      <div class="hidden w-1/3 lg:block">
-        <span
-          v-dompurify-html="
-            useInstallationName(
-              $t('INBOX_MGMT.SIDEBAR_TXT'),
-              globalConfig.installationName
-            )
-          "
-        />
-      </div>
+            <td class="py-4 pr-4 flex justify-end gap-1">
+              <router-link
+                :to="addAccountScoping(`settings/inboxes/${item.id}`)"
+              >
+                <woot-button
+                  v-if="isAdmin"
+                  v-tooltip.top="$t('INBOX_MGMT.SETTINGS')"
+                  variant="smooth"
+                  size="tiny"
+                  icon="settings"
+                  color-scheme="secondary"
+                  class-names="grey-btn"
+                />
+              </router-link>
+
+              <woot-button
+                v-if="isAdmin"
+                v-tooltip.top="$t('INBOX_MGMT.DELETE.BUTTON_TEXT')"
+                variant="smooth"
+                color-scheme="alert"
+                size="tiny"
+                class-names="grey-btn"
+                :is-loading="loading[item.id]"
+                icon="dismiss-circle"
+                @click="openDelete(item)"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <settings
       v-if="showSettings"
@@ -137,9 +146,11 @@ import { useAdmin } from 'dashboard/composables/useAdmin';
 import Settings from './Settings.vue';
 import accountMixin from '../../../../mixins/account';
 import globalConfigMixin from 'shared/mixins/globalConfigMixin';
+import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
 
 export default {
   components: {
+    BaseSettingsHeader,
     Settings,
   },
   mixins: [accountMixin, globalConfigMixin],

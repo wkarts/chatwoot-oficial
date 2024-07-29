@@ -34,10 +34,6 @@ table {
     }
   }
 
-  .agent-name {
-    @apply block font-medium capitalize;
-  }
-
   .woot-thumbnail {
     @apply rounded-full h-[3.125rem] w-[3.125rem];
   }

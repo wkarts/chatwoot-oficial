@@ -16,6 +16,7 @@ const FEATURE_HELP_URLS = {
   webhook: 'https://chwt.app/hc/webhooks',
   automation: 'https://chwt.app/hc/automation',
   audit_logs: 'https://chwt.app/hc/audit-logs',
+  macros: 'https://chwt.app/hc/macros',
 };
 
 export function getHelpUrlForFeature(featureName) {

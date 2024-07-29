@@ -1,48 +1,60 @@
 <template>
   <div class="flex-1 overflow-auto">
-    <router-link
-      :to="addAccountScoping('settings/macros/new')"
-      class="button success button--fixed-top button success button--fixed-top px-3.5 py-1 rounded-[5px] flex gap-2"
+    <BaseSettingsHeader
+      :title="$t('MACROS.HEADER')"
+      :description="$t('MACROS.DESCRIPTION')"
+      :link-text="$t('MACROS.LEARN_MORE')"
+      feature-name="macros"
     >
-      <fluent-icon icon="add-circle" />
-      <span class="button__content">
-        {{ $t('MACROS.HEADER_BTN_TXT') }}
-      </span>
-    </router-link>
-    <div class="flex flex-row gap-4 p-8">
-      <div class="w-full lg:w-3/5">
-        <div v-if="!uiFlags.isFetching && !records.length" class="p-3">
-          <p class="flex h-full items-center flex-col justify-center">
-            {{ $t('MACROS.LIST.404') }}
-          </p>
-        </div>
-        <woot-loading-state
-          v-if="uiFlags.isFetching"
-          :message="$t('MACROS.LOADING')"
-        />
-        <table v-if="!uiFlags.isFetching && records.length" class="woot-table">
-          <thead>
-            <th
-              v-for="thHeader in $t('MACROS.LIST.TABLE_HEADER')"
-              :key="thHeader"
-            >
-              {{ thHeader }}
-            </th>
-          </thead>
-          <tbody>
-            <macros-table-row
-              v-for="(macro, index) in records"
-              :key="index"
-              :macro="macro"
-              @delete="openDeletePopup(macro, index)"
-            />
-          </tbody>
-        </table>
+      <template #actions>
+        <router-link
+          :to="addAccountScoping('settings/macros/new')"
+          class="button rounded-md primary"
+        >
+          <fluent-icon icon="add-circle" />
+          <span class="button__content">
+            {{ $t('MACROS.HEADER_BTN_TXT') }}
+          </span>
+        </router-link>
+      </template>
+    </BaseSettingsHeader>
+
+    <div class="w-full flex flex-row gap-4 mt-6">
+      <div v-if="!uiFlags.isFetching && !records.length" class="p-3">
+        <p class="flex h-full items-center flex-col justify-center">
+          {{ $t('MACROS.LIST.404') }}
+        </p>
       </div>
-      <div class="hidden lg:block w-1/3">
-        <span v-dompurify-html="$t('MACROS.SIDEBAR_TXT')" />
-      </div>
+      <woot-loading-state
+        v-if="uiFlags.isFetching"
+        :message="$t('MACROS.LOADING')"
+      />
+      <table
+        v-if="!uiFlags.isFetching && records.length"
+        class="min-w-full divide-y divide-slate-75 dark:divide-slate-700"
+      >
+        <thead>
+          <th
+            v-for="thHeader in $t('MACROS.LIST.TABLE_HEADER')"
+            :key="thHeader"
+            class="py-4 pr-4 text-left font-semibold text-slate-700 dark:text-slate-300"
+          >
+            {{ thHeader }}
+          </th>
+        </thead>
+        <tbody
+          class="divide-y divide-slate-50 dark:divide-slate-800 text-slate-700 dark:text-slate-300"
+        >
+          <macros-table-row
+            v-for="(macro, index) in records"
+            :key="index"
+            :macro="macro"
+            @delete="openDeletePopup(macro, index)"
+          />
+        </tbody>
+      </table>
     </div>
+
     <woot-delete-modal
       :show.sync="showDeleteConfirmationPopup"
       :on-close="closeDeletePopup"
@@ -61,8 +73,10 @@ import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import accountMixin from 'dashboard/mixins/account.js';
 import MacrosTableRow from './MacrosTableRow.vue';
+import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
 export default {
   components: {
+    BaseSettingsHeader,
     MacrosTableRow,
   },
   mixins: [accountMixin],

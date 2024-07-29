@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col justify-between flex-1 p-4 overflow-auto">
-    <!-- List Audit Logs -->
     <div>
       <div>
         <p

@@ -8,11 +8,6 @@ export default {
     {
       path: frontendURL('accounts/:accountId/settings/labels'),
       component: SettingsWrapper,
-      props: {
-        headerTitle: 'LABEL_MGMT.HEADER',
-        icon: 'tag',
-        showNewButton: false,
-      },
       children: [
         {
           path: '',

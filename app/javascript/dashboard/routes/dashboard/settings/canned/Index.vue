@@ -1,110 +1,108 @@
 <template>
   <div class="flex-1 overflow-auto">
-    <woot-button
-      color-scheme="success"
-      class-names="button--fixed-top"
-      icon="add-circle"
-      @click="openAddPopup()"
+    <BaseSettingsHeader
+      :title="$t('CANNED_MGMT.HEADER')"
+      :description="$t('CANNED_MGMT.DESCRIPTION')"
+      :link-text="$t('CANNED_MGMT.LEARN_MORE')"
+      feature-name="canned_responses"
     >
-      {{ $t('CANNED_MGMT.HEADER_BTN_TXT') }}
-    </woot-button>
-
-    <!-- List Canned Response -->
-    <div class="flex flex-row gap-4 p-8">
-      <div class="w-full xl:w-3/5">
-        <p
-          v-if="!uiFlags.fetchingList && !records.length"
-          class="flex flex-col items-center justify-center h-full"
+      <template #actions>
+        <woot-button
+          class="button nice rounded-md"
+          icon="add-circle"
+          @click="openAddPopup"
         >
-          {{ $t('CANNED_MGMT.LIST.404') }}
-        </p>
-        <woot-loading-state
-          v-if="uiFlags.fetchingList"
-          :message="$t('CANNED_MGMT.LOADING')"
-        />
+          {{ $t('CANNED_MGMT.HEADER_BTN_TXT') }}
+        </woot-button>
+      </template>
+    </BaseSettingsHeader>
 
-        <table
-          v-if="!uiFlags.fetchingList && records.length"
-          class="woot-table"
-        >
-          <thead>
-            <!-- Header -->
-            <th
-              v-for="thHeader in $t('CANNED_MGMT.LIST.TABLE_HEADER')"
-              :key="thHeader"
-              class="last:text-right first:m-0 first:p-0"
+    <div class="mt-6 w-full flex flex-row gap-4">
+      <p
+        v-if="!uiFlags.fetchingList && !records.length"
+        class="flex flex-col items-center justify-center h-full"
+      >
+        {{ $t('CANNED_MGMT.LIST.404') }}
+      </p>
+      <woot-loading-state
+        v-if="uiFlags.fetchingList"
+        :message="$t('CANNED_MGMT.LOADING')"
+      />
+
+      <table
+        v-if="!uiFlags.fetchingList && records.length"
+        class="min-w-full divide-y divide-slate-75 dark:divide-slate-700"
+      >
+        <thead>
+          <th
+            v-for="thHeader in $t('CANNED_MGMT.LIST.TABLE_HEADER')"
+            :key="thHeader"
+            class="py-4 pr-4 text-left font-semibold text-slate-700 dark:text-slate-300"
+          >
+            <span v-if="thHeader !== $t('CANNED_MGMT.LIST.TABLE_HEADER[0]')">
+              {{ thHeader }}
+            </span>
+
+            <button
+              v-if="thHeader === $t('CANNED_MGMT.LIST.TABLE_HEADER[0]')"
+              class="flex items-center p-0 cursor-pointer"
+              @click="toggleSort"
             >
-              <p v-if="thHeader !== $t('CANNED_MGMT.LIST.TABLE_HEADER[0]')">
+              <span class="mb-0">
                 {{ thHeader }}
-              </p>
-
-              <button
-                v-if="thHeader === $t('CANNED_MGMT.LIST.TABLE_HEADER[0]')"
-                class="flex items-center p-0 cursor-pointer"
-                @click="toggleSort"
-              >
-                <p class="uppercase">
-                  {{ thHeader }}
-                </p>
-                <fluent-icon
-                  class="mb-2 ml-2"
-                  :icon="sortOrder === 'asc' ? 'chevron-up' : 'chevron-down'"
-                />
-              </button>
-            </th>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(cannedItem, index) in records"
-              :key="cannedItem.short_code"
+              </span>
+              <fluent-icon
+                class="ml-2"
+                :icon="sortOrder === 'asc' ? 'chevron-up' : 'chevron-down'"
+              />
+            </button>
+          </th>
+        </thead>
+        <tbody
+          class="divide-y divide-slate-50 dark:divide-slate-800 text-slate-700 dark:text-slate-300"
+        >
+          <tr
+            v-for="(cannedItem, index) in records"
+            :key="cannedItem.short_code"
+          >
+            <td
+              class="py-4 pr-4 w-[8.75rem] truncate max-w-[8.75rem] font-medium"
+              :title="cannedItem.short_code"
             >
-              <!-- Short Code  -->
-              <td
-                class="w-[8.75rem] truncate max-w-[8.75rem]"
-                :title="cannedItem.short_code"
-              >
-                {{ cannedItem.short_code }}
-              </td>
-              <!-- Content -->
-              <td class="break-all whitespace-normal">
-                {{ cannedItem.content }}
-              </td>
-              <!-- Action Buttons -->
-              <td class="flex justify-end gap-1 min-w-[12.5rem]">
-                <woot-button
-                  v-tooltip.top="$t('CANNED_MGMT.EDIT.BUTTON_TEXT')"
-                  variant="smooth"
-                  size="tiny"
-                  color-scheme="secondary"
-                  icon="edit"
-                  @click="openEditPopup(cannedItem)"
-                />
-                <woot-button
-                  v-tooltip.top="$t('CANNED_MGMT.DELETE.BUTTON_TEXT')"
-                  variant="smooth"
-                  color-scheme="alert"
-                  size="tiny"
-                  icon="dismiss-circle"
-                  class-names="grey-btn"
-                  :is-loading="loading[cannedItem.id]"
-                  @click="openDeletePopup(cannedItem, index)"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="hidden w-1/3 xl:block">
-        <span v-dompurify-html="$t('CANNED_MGMT.SIDEBAR_TXT')" />
-      </div>
+              {{ cannedItem.short_code }}
+            </td>
+            <td class="py-4 pr-4 break-all whitespace-normal">
+              {{ cannedItem.content }}
+            </td>
+            <td class="py-4 flex justify-end gap-1">
+              <woot-button
+                v-tooltip.top="$t('CANNED_MGMT.EDIT.BUTTON_TEXT')"
+                variant="smooth"
+                size="tiny"
+                color-scheme="secondary"
+                icon="edit"
+                @click="openEditPopup(cannedItem)"
+              />
+              <woot-button
+                v-tooltip.top="$t('CANNED_MGMT.DELETE.BUTTON_TEXT')"
+                variant="smooth"
+                color-scheme="alert"
+                size="tiny"
+                icon="dismiss-circle"
+                class-names="grey-btn"
+                :is-loading="loading[cannedItem.id]"
+                @click="openDeletePopup(cannedItem, index)"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <!-- Add Agent -->
+
     <woot-modal :show.sync="showAddPopup" :on-close="hideAddPopup">
       <add-canned :on-close="hideAddPopup" />
     </woot-modal>
 
-    <!-- Edit Canned Response -->
     <woot-modal :show.sync="showEditPopup" :on-close="hideEditPopup">
       <edit-canned
         v-if="showEditPopup"
@@ -115,7 +113,6 @@
       />
     </woot-modal>
 
-    <!-- Delete Canned Response -->
     <woot-delete-modal
       :show.sync="showDeleteConfirmationPopup"
       :on-close="closeDeletePopup"
@@ -133,11 +130,13 @@ import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import AddCanned from './AddCanned.vue';
 import EditCanned from './EditCanned.vue';
+import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
 
 export default {
   components: {
     AddCanned,
     EditCanned,
+    BaseSettingsHeader,
   },
   data() {
     return {

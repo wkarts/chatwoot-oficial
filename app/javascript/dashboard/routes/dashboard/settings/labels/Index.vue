@@ -41,7 +41,7 @@
             {{ thHeader }}
           </th>
         </thead>
-        <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
+        <tbody class="divide-y divide-slate-25 dark:divide-slate-800">
           <tr v-for="(label, index) in records" :key="label.title">
             <td class="py-4 pr-4">
               <span

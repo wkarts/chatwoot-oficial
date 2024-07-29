@@ -1,86 +1,96 @@
 <template>
-  <div class="flex-1 p-4 overflow-auto">
-    <woot-button
-      color-scheme="success"
-      class-names="button--fixed-top"
-      icon="add-circle"
-      @click="openAddPopup()"
+  <div class="flex-1 overflow-auto">
+    <BaseSettingsHeader
+      :title="$t('AUTOMATION.HEADER')"
+      :description="$t('AUTOMATION.DESCRIPTION')"
+      :link-text="$t('AUTOMATION.LEARN_MORE')"
+      feature-name="automation"
     >
-      {{ $t('AUTOMATION.HEADER_BTN_TXT') }}
-    </woot-button>
-    <div class="flex flex-row gap-4">
-      <div class="w-full lg:w-3/5">
-        <p
-          v-if="!uiFlags.isFetching && !records.length"
-          class="flex flex-col items-center justify-center h-full"
+      <template #actions>
+        <woot-button
+          class="button nice rounded-md"
+          icon="add-circle"
+          @click="openAddPopup"
         >
-          {{ $t('AUTOMATION.LIST.404') }}
-        </p>
-        <woot-loading-state
-          v-if="uiFlags.isFetching"
-          :message="$t('AUTOMATION.LOADING')"
-        />
-        <table v-if="!uiFlags.isFetching && records.length" class="woot-table">
-          <thead>
-            <th
-              v-for="thHeader in $t('AUTOMATION.LIST.TABLE_HEADER')"
-              :key="thHeader"
-            >
-              {{ thHeader }}
-            </th>
-          </thead>
-          <tbody>
-            <tr v-for="(automation, index) in records" :key="index">
-              <td>{{ automation.name }}</td>
-              <td>{{ automation.description }}</td>
-              <td>
-                <woot-switch
-                  :value="automation.active"
-                  @input="toggleAutomation(automation, automation.active)"
-                />
-              </td>
-              <td>{{ readableTime(automation.created_on) }}</td>
-              <td class="button-wrapper">
-                <woot-button
-                  v-tooltip.top="$t('AUTOMATION.FORM.EDIT')"
-                  variant="smooth"
-                  size="tiny"
-                  color-scheme="secondary"
-                  class-names="grey-btn"
-                  :is-loading="loading[automation.id]"
-                  icon="edit"
-                  @click="openEditPopup(automation)"
-                />
-                <woot-button
-                  v-tooltip.top="$t('AUTOMATION.CLONE.TOOLTIP')"
-                  variant="smooth"
-                  size="tiny"
-                  color-scheme="primary"
-                  class-names="grey-btn"
-                  :is-loading="loading[automation.id]"
-                  icon="copy"
-                  @click="cloneAutomation(automation.id)"
-                />
-                <woot-button
-                  v-tooltip.top="$t('AUTOMATION.FORM.DELETE')"
-                  variant="smooth"
-                  color-scheme="alert"
-                  size="tiny"
-                  icon="dismiss-circle"
-                  class-names="grey-btn"
-                  :is-loading="loading[automation.id]"
-                  @click="openDeletePopup(automation, index)"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          {{ $t('AUTOMATION.HEADER_BTN_TXT') }}
+        </woot-button>
+      </template>
+    </BaseSettingsHeader>
 
-      <div class="hidden w-1/3 lg:block">
-        <span v-dompurify-html="$t('AUTOMATION.SIDEBAR_TXT')" />
-      </div>
+    <div class="w-full flex flex-row gap-4 mt-6">
+      <p
+        v-if="!uiFlags.isFetching && !records.length"
+        class="flex flex-col items-center justify-center h-full"
+      >
+        {{ $t('AUTOMATION.LIST.404') }}
+      </p>
+      <woot-loading-state
+        v-if="uiFlags.isFetching"
+        :message="$t('AUTOMATION.LOADING')"
+      />
+      <table
+        v-if="!uiFlags.isFetching && records.length"
+        class="min-w-full divide-y divide-slate-75 dark:divide-slate-700"
+      >
+        <thead>
+          <th
+            v-for="thHeader in $t('AUTOMATION.LIST.TABLE_HEADER')"
+            :key="thHeader"
+            class="py-4 pr-4 text-left font-semibold text-slate-700 dark:text-slate-300"
+          >
+            {{ thHeader }}
+          </th>
+        </thead>
+        <tbody
+          class="divide-y divide-slate-50 dark:divide-slate-800 text-slate-700 dark:text-slate-300"
+        >
+          <tr v-for="(automation, index) in records" :key="index">
+            <td class="py-4 pr-4">{{ automation.name }}</td>
+            <td class="py-4 pr-4">{{ automation.description }}</td>
+            <td class="py-4 pr-4">
+              <woot-switch
+                :value="automation.active"
+                @input="toggleAutomation(automation, automation.active)"
+              />
+            </td>
+            <td class="py-4 pr-4">{{ readableTime(automation.created_on) }}</td>
+            <td class="py-4 min-w-xs flex gap-1 justify-end flex-shrink-0">
+              <woot-button
+                v-tooltip.top="$t('AUTOMATION.FORM.EDIT')"
+                variant="smooth"
+                size="tiny"
+                color-scheme="secondary"
+                class-names="grey-btn"
+                :is-loading="loading[automation.id]"
+                icon="edit"
+                @click="openEditPopup(automation)"
+              />
+              <woot-button
+                v-tooltip.top="$t('AUTOMATION.CLONE.TOOLTIP')"
+                variant="smooth"
+                size="tiny"
+                color-scheme="primary"
+                class-names="grey-btn"
+                :is-loading="loading[automation.id]"
+                icon="copy"
+                @click="cloneAutomation(automation.id)"
+              />
+              <woot-button
+                v-tooltip.top="$t('AUTOMATION.FORM.DELETE')"
+                variant="smooth"
+                color-scheme="alert"
+                size="tiny"
+                icon="dismiss-circle"
+                class-names="grey-btn"
+                :is-loading="loading[automation.id]"
+                @click="openDeletePopup(automation, index)"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
     <woot-modal
       :show.sync="showAddPopup"
       size="medium"
@@ -129,11 +139,13 @@ import { useAlert } from 'dashboard/composables';
 import { messageStamp } from 'shared/helpers/timeHelper';
 import AddAutomationRule from './AddAutomationRule.vue';
 import EditAutomationRule from './EditAutomationRule.vue';
+import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
 
 export default {
   components: {
     AddAutomationRule,
     EditAutomationRule,
+    BaseSettingsHeader,
   },
   data() {
     return {

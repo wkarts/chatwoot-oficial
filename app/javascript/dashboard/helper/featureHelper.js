@@ -14,6 +14,7 @@ const FEATURE_HELP_URLS = {
   sla: 'https://chwt.app/hc/sla',
   dashboard_apps: 'https://chwt.app/hc/dashboard-apps',
   webhook: 'https://chwt.app/hc/webhooks',
+  automation: 'https://chwt.app/hc/automation',
 };
 
 export function getHelpUrlForFeature(featureName) {

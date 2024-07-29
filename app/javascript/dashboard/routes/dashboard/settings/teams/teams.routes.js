@@ -9,21 +9,39 @@ const AddAgents = () => import('./Create/AddAgents.vue');
 const EditAgents = () => import('./Edit/EditAgents.vue');
 const FinishSetup = () => import('./FinishSetup.vue');
 const SettingsContent = () => import('../Wrapper.vue');
+const SettingsWrapper = () => import('../SettingsWrapper.vue');
 const TeamsHome = () => import('./Index.vue');
 
 export default {
   routes: [
     {
       path: frontendURL('accounts/:accountId/settings/teams'),
+      component: SettingsWrapper,
+      children: [
+        {
+          path: '',
+          redirect: 'list',
+        },
+        {
+          path: 'list',
+          name: 'settings_teams_list',
+          component: TeamsHome,
+          meta: {
+            permissions: ['administrator'],
+          },
+        },
+      ],
+    },
+    {
+      path: frontendURL('accounts/:accountId/settings/teams'),
       component: SettingsContent,
-      props: params => {
-        const showBackButton = params.name !== 'settings_teams_list';
+      props: () => {
         return {
           headerTitle: 'TEAMS_SETTINGS.HEADER',
           headerButtonText: 'TEAMS_SETTINGS.NEW_TEAM',
           icon: 'people-team',
           newButtonRoutes: ['settings_teams_new'],
-          showBackButton,
+          showBackButton: true,
         };
       },
       children: [

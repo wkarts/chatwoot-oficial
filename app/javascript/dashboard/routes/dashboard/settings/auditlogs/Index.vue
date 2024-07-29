@@ -1,64 +1,66 @@
 <template>
-  <div class="flex flex-col justify-between flex-1 p-4 overflow-auto">
-    <div>
-      <div>
-        <p
-          v-if="!uiFlags.fetchingList && !records.length"
-          class="flex flex-col items-center justify-center h-full"
-        >
-          {{ $t('AUDIT_LOGS.LIST.404') }}
-        </p>
-        <woot-loading-state
-          v-if="uiFlags.fetchingList"
-          :message="$t('AUDIT_LOGS.LOADING')"
-        />
-
-        <table
-          v-if="!uiFlags.fetchingList && records.length"
-          class="w-full woot-table"
-        >
-          <colgroup>
-            <col class="w-3/5" />
-            <col />
-            <col />
-          </colgroup>
-          <thead>
-            <!-- Header -->
-            <th
-              v-for="thHeader in $t('AUDIT_LOGS.LIST.TABLE_HEADER')"
-              :key="thHeader"
-            >
-              {{ thHeader }}
-            </th>
-          </thead>
-          <tbody>
-            <tr v-for="auditLogItem in records" :key="auditLogItem.id">
-              <td class="break-all whitespace-nowrap">
-                {{ generateLogText(auditLogItem) }}
-              </td>
-              <td class="break-all whitespace-nowrap">
-                {{
-                  messageTimestamp(
-                    auditLogItem.created_at,
-                    'MMM dd, yyyy hh:mm a'
-                  )
-                }}
-              </td>
-              <td class="w-[8.75rem]">
-                {{ auditLogItem.remote_address }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <table-footer
-      :current-page="Number(meta.currentPage)"
-      :total-count="meta.totalEntries"
-      :page-size="meta.perPage"
-      class="!bg-slate-25 dark:!bg-slate-900 border-t border-slate-75 dark:border-slate-700/50"
-      @page-change="onPageChange"
+  <div class="flex-1 overflow-auto">
+    <BaseSettingsHeader
+      :title="$t('AUDIT_LOGS.HEADER')"
+      :description="$t('AUDIT_LOGS.DESCRIPTION')"
+      :link-text="$t('AUDIT_LOGS.LEARN_MORE')"
+      feature-name="audit_logs"
     />
+
+    <div class="mt-6 w-full gap-4">
+      <p
+        v-if="!uiFlags.fetchingList && !records.length"
+        class="flex flex-col items-center justify-center h-full"
+      >
+        {{ $t('AUDIT_LOGS.LIST.404') }}
+      </p>
+      <woot-loading-state
+        v-if="uiFlags.fetchingList"
+        :message="$t('AUDIT_LOGS.LOADING')"
+      />
+
+      <table
+        v-if="!uiFlags.fetchingList && records.length"
+        class="min-w-full divide-y divide-slate-75 dark:divide-slate-700"
+      >
+        <thead>
+          <th
+            v-for="thHeader in $t('AUDIT_LOGS.LIST.TABLE_HEADER')"
+            :key="thHeader"
+            class="py-4 pr-4 text-left font-semibold text-slate-700 dark:text-slate-300"
+          >
+            {{ thHeader }}
+          </th>
+        </thead>
+        <tbody
+          class="divide-y divide-slate-50 dark:divide-slate-800 text-slate-700 dark:text-slate-300"
+        >
+          <tr v-for="auditLogItem in records" :key="auditLogItem.id">
+            <td class="py-4 pr-4 break-all whitespace-nowrap">
+              {{ generateLogText(auditLogItem) }}
+            </td>
+            <td class="py-4 pr-4 break-all whitespace-nowrap">
+              {{
+                messageTimestamp(
+                  auditLogItem.created_at,
+                  'MMM dd, yyyy hh:mm a'
+                )
+              }}
+            </td>
+            <td class="py-4 w-[8.75rem]">
+              {{ auditLogItem.remote_address }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table-footer
+        :current-page="Number(meta.currentPage)"
+        :total-count="meta.totalEntries"
+        :page-size="meta.perPage"
+        class="border-slate-50 dark:border-slate-800 border-t !px-0"
+        @page-change="onPageChange"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -70,10 +72,12 @@ import {
   generateTranslationPayload,
   generateLogActionKey,
 } from 'dashboard/helper/auditlogHelper';
+import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
 
 export default {
   components: {
     TableFooter,
+    BaseSettingsHeader,
   },
   beforeRouteEnter(to, from, next) {
     // Fetch Audit Logs on page load without manual refresh

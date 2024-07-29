@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row gap-4 p-8">
-    <div class="w-full lg:w-3/5">
+  <div class="flex flex-row gap-4 mt-6">
+    <div class="w-full">
       <woot-tabs :index="selectedTabIndex" @change="onClickTabChange">
         <woot-tabs-item
           v-for="tab in tabs"
@@ -23,40 +23,36 @@
         />
         <table
           v-if="!uiFlags.isFetching && attributes.length"
-          class="w-full mt-2 table-fixed woot-table"
+          class="min-w-full divide-y divide-slate-50 dark:divide-slate-800"
         >
           <thead>
             <th
               v-for="tableHeader in $t('ATTRIBUTES_MGMT.LIST.TABLE_HEADER')"
               :key="tableHeader"
-              class="pl-0 max-w-[6.25rem] min-w-[5rem]"
+              class="py-4 pr-4 text-left font-semibold text-slate-700 dark:text-slate-300"
             >
               {{ tableHeader }}
             </th>
           </thead>
-          <tbody>
+          <tbody
+            class="divide-y divide-slate-50 dark:divide-slate-800 text-slate-700 dark:text-slate-300"
+          >
             <tr v-for="attribute in attributes" :key="attribute.attribute_key">
-              <td
-                class="pl-0 max-w-[6.25rem] min-w-[5rem] overflow-hidden whitespace-nowrap text-ellipsis"
-              >
+              <td class="pr-4 py-4 max-w-[6.25rem] min-w-[5rem] truncate">
                 {{ attribute.attribute_display_name }}
               </td>
-              <td
-                class="pl-0 max-w-[10rem] min-w-[6.25rem] overflow-hidden whitespace-nowrap text-ellipsis"
-              >
+              <td class="pr-4 py-4 max-w-[10rem] min-w-[6.25rem] truncate">
                 {{ attribute.attribute_description }}
               </td>
-              <td
-                class="pl-0 max-w-[6.25rem] min-w-[5rem] overflow-hidden whitespace-nowrap text-ellipsis"
-              >
+              <td class="pr-4 py-4 max-w-[6.25rem] min-w-[5rem] truncate">
                 {{ attribute.attribute_display_type }}
               </td>
               <td
-                class="attribute-key pl-0 max-w-[6.25rem] min-w-[5rem] overflow-hidden whitespace-nowrap text-ellipsis"
+                class="attribute-key pr-4 py-4 max-w-[6.25rem] min-w-[5rem] truncate"
               >
                 {{ attribute.attribute_key }}
               </td>
-              <td class="button-wrapper">
+              <td class="py-4 flex justify-end gap-1">
                 <woot-button
                   v-tooltip.top="$t('ATTRIBUTES_MGMT.LIST.BUTTONS.EDIT')"
                   variant="smooth"
@@ -81,9 +77,7 @@
         </table>
       </div>
     </div>
-    <div class="hidden w-1/3 lg:block">
-      <span v-dompurify-html="$t('ATTRIBUTES_MGMT.SIDEBAR_TXT')" />
-    </div>
+
     <woot-modal :show.sync="showEditPopup" :on-close="hideEditPopup">
       <edit-attribute
         :selected-attribute="selectedAttribute"

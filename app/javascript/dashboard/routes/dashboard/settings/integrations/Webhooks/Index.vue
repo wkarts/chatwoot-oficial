@@ -45,7 +45,7 @@
             {{ thHeader }}
           </th>
         </thead>
-        <tbody>
+        <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
           <webhook-row
             v-for="(webHookItem, index) in records"
             :key="webHookItem.id"

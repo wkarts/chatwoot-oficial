@@ -1,6 +1,8 @@
 {
   "LABEL_MGMT": {
     "HEADER": "Labels",
+    "DESCRIPTION": "Labels help you categorize and prioritize conversations and leads. You can assign a label to a conversation or contact using the side panel.",
+    "LEARN_MORE": "Learn more about labels",
     "HEADER_BTN_TXT": "Add label",
     "LOADING": "Fetching labels",
     "SEARCH_404": "There are no items matching this query",
@@ -9,7 +11,11 @@
       "404": "There are no labels available in this account.",
       "TITLE": "Manage labels",
       "DESC": "Labels let you group the conversations together.",
-      "TABLE_HEADER": ["Name", "Description", "Color"]
+      "TABLE_HEADER": [
+        "Name",
+        "Description",
+        "Color"
+      ]
     },
     "FORM": {
       "NAME": {

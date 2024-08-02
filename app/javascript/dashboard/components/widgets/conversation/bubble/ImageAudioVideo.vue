@@ -18,7 +18,7 @@
       @click="onClick"
     />
     <audio v-else-if="isAudio" controls class="skip-context-menu mb-0.5">
-      <source :src="`${dataUrl}?t=${Date.now()}`" />
+      <source :src="`${computedDataUrlWithTimestamp}`" />
     </audio>
     <gallery-view
       v-if="show"
@@ -89,6 +89,13 @@ export default {
     },
     dataUrl() {
       return this.attachment.data_url;
+    },
+    computedDataUrlWithTimestamp() {
+      if (!this.dataUrl) {
+        return null;
+      }
+      const separator = this.dataUrl.includes('?') ? '&' : '?';
+      return `${this.dataUrl}${separator}t=${Date.now()}`;
     },
     imageWidth() {
       return this.attachment.width ? `${this.attachment.width}px` : 'auto';
